@@ -1,10 +1,3 @@
-/// Differential test: Dart dvigateli asl Python etaloniga bit-darajada mos.
-///
-/// `test/golden/engine_golden.json` ni `tool/gen_engine_golden.py` yaratadi —
-/// u `shashka_ai/checkers_engine.py` (10 000 o'yinlik fuzzing'dan o'tgan
-/// etalon) bilan 60 ta determinik o'yin o'ynab, har yarim-yurishda to'liq
-/// holatni yozadi. Bu test aynan shu harakatlarni Dart dvigatelida
-/// takrorlab, har bir maydonni solishtiradi.
 library;
 import 'dart:convert';
 import 'dart:io';
@@ -37,7 +30,6 @@ List<int> capturedList(Position p) {
   return out;
 }
 
-/// Siyrak yozilgan `encode` ni to'liq vektorga ochadi.
 Float32List expandEncode(List<dynamic> sparse) {
   final out = Float32List(inputSize);
   for (var i = 0; i < sparse.length; i += 2) {

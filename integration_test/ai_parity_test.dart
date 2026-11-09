@@ -70,7 +70,6 @@ void main() {
       expect(valueDelta, lessThan(0.02), reason: 'holat $i: baho');
     }
 
-    // ignore: avoid_print
     print('parity: ${cases.length} holat · mos=$matched '
         '(${(matched / cases.length * 100).toStringAsFixed(1)}%) · '
         'zanjirli=$chained · '
@@ -78,7 +77,7 @@ void main() {
         'baho farqi <= ${maxValueDelta.toStringAsExponential(2)} · '
         'manba ${meta['source']}');
     for (final line in mismatches) {
-      // ignore: avoid_print
+
       print('  FARQ $line');
     }
 

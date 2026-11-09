@@ -114,7 +114,6 @@ void main() {
       lengths.add(position.ply);
     }
 
-    // ignore: avoid_print
     print('soak: $_games o\'yin, $totalPlies AI yurishi · '
         'oq=${results[1]} qora=${results[-1]} durang=${results[0]} · '
         'turli uzunliklar=${lengths.length} · '

@@ -1,5 +1,3 @@
-/// Rus shashkasi qoidalari testlari — asl loyihadagi
-/// `shashka_ai/test_engine.py` dan portlangan.
 library;
 import 'dart:typed_data';
 
@@ -11,15 +9,12 @@ const int wk = 2;
 const int bm = -1;
 const int bk = -2;
 
-/// `(row, col)` dan katak indeksi.
 int sq(int r, int c) {
   final s = rcSq[r * 8 + c];
   expect(s, greaterThanOrEqualTo(0), reason: '($r,$c) qora katak emas');
   return s;
 }
 
-/// Bo'sh doskaga belgilangan shashkalarni joylab pozitsiya yasaydi.
-/// [placements] elementlari: `(row, col, piece)`.
 Position setup(List<(int, int, int)> placements, {int side = white}) {
   final pieces = List<int>.filled(numSquares, 0);
   for (final (r, c, p) in placements) {
@@ -28,7 +23,6 @@ Position setup(List<(int, int, int)> placements, {int side = white}) {
   return Position.fromBoard(pieces, side);
 }
 
-/// Qonuniy yurishlarni `(from, to)` juftliklar to'plamiga aylantiradi.
 Set<(int, int)> pairs(List<int> moves) =>
     moves.map((a) => (actionFrom(a), actionTo(a))).toSet();
 
@@ -211,7 +205,6 @@ void main() {
     expect(x[192], 0);
     expect(x[193], 0);
 
-    // Qora yursa ham o'z shashkalari 0-kanalda bo'ladi.
     final p2 = Position.initial();
     p2.apply(p2.legalMoves().first);
     p2.encode(x);

@@ -1,10 +1,3 @@
-/// Play Console uchun skrinshotlarni qurilmada avtomatik olish.
-///
-/// Ishga tushirish:
-///   `flutter drive --profile --driver=test_driver/screenshots.dart \`
-///   `  --target=integration_test/screenshots_test.dart -d <device-id>`
-///
-/// Natijalar: `docs/play/graphics/screenshots/<til>/NN-<nom>.png`
 library;
 
 import 'package:flutter/material.dart';
@@ -70,8 +63,6 @@ int sqColOf(int square) => _rowCol(square).$2;
   throw ArgumentError('katak $square');
 }
 
-/// AppBar'dagi orqaga tugmasi. `pageBack()` ishlatilmaydi: u tooltip'ni
-/// 'Back' deb qidiradi va boshqa tillarda topolmaydi.
 Future<void> _goBack(WidgetTester tester) async {
   await tester.tap(find.byType(BackButton));
   await tester.pumpAndSettle();
@@ -115,13 +106,11 @@ void main() {
       );
       await _shot(tester, '$prefix/01-home');
 
-      // Qoidalar.
       await tester.tap(find.text(l10n.menuRules));
       await tester.pumpAndSettle();
       await _shot(tester, '$prefix/04-rules');
       await _goBack(tester);
 
-      // Ilova haqida.
       await tester.tap(find.text(l10n.menuAbout));
       await tester.pumpAndSettle();
       await _shot(tester, '$prefix/05-about');
@@ -138,7 +127,6 @@ void main() {
       await tester.pumpAndSettle();
       await _goBack(tester);
 
-      // O'yin: bir necha yurish qilib, ko'rsatkichlar to'lgan holatni olamiz.
       await tester.tap(find.text(l10n.play));
       await tester.pumpAndSettle();
       final controller = _controller(tester);
@@ -160,7 +148,7 @@ void main() {
           () => controller.isHumanTurn || controller.winner != null,
         );
       }
-      // Tanlangan tosh va mumkin bo'lgan yurishlar ko'rinib tursin.
+
       if (controller.isHumanTurn && controller.movableSquares.isNotEmpty) {
         await _tapSquare(tester, controller.movableSquares.first);
       }

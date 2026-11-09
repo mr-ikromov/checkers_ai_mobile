@@ -114,7 +114,7 @@ void main() {
     expect(readout.evaluation, inInclusiveRange(-1.0, 1.0));
     expect(readout.elapsedMs, lessThan(2000),
         reason: 'yurish bir zumda bo\'lishi kerak');
-    // ignore: avoid_print
+
     print('AI yurishi: ishonch=${(readout.confidence * 100).round()}% '
         'baho=${readout.evaluation.toStringAsFixed(3)} '
         'vaqt=${readout.elapsedMs}ms');
@@ -218,7 +218,7 @@ void main() {
     stopwatch.stop();
 
     expect(controller.winner, isNotNull);
-    // ignore: avoid_print
+
     print('To\'liq o\'yin: ${controller.ply} yarim-yurish, '
         'natija=${controller.winner}, ${stopwatch.elapsedMilliseconds} ms');
 

@@ -1,16 +1,9 @@
-/// Invariant fuzzing — `shashka_ai/test_engine.py` dagi
-/// `test_random_playout_terminates_and_stays_legal` portlangan.
-///
-/// Tasodifiy o'yinlar o'ynab, har yurishda qoidalarning buzilmasligini
-/// tekshiradi: urish majburiyligi, bir segmentda bitta urish, shashka soni
-/// oshmasligi, zanjirning to'g'ri tugashi va o'yinning albatta tugashi.
 library;
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shashka/core/engine/position.dart';
 
-/// `from`→`to` segmentida nechta shashka ustidan o'tiladi.
 int piecesBetween(Position p, int from, int to) {
   final fr = sqRow[from];
   final fc = sqCol[from];
@@ -98,7 +91,7 @@ void main() {
 
     expect(results.values.reduce((a, b) => a + b), games);
     expect(totalPlies, greaterThan(games * 10));
-    // ignore: avoid_print
+
     print('  fuzzing ($games o\'yin, $totalPlies yarim-yurish): '
         'oq=${results[1]} qora=${results[-1]} durang=${results[0]}');
   });
