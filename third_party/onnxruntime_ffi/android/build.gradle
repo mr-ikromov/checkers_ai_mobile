@@ -1,0 +1,45 @@
+// ONNX Runtime native kutubxonasi — Microsoft'ning rasmiy AAR'i.
+// Eski paketdagi qo'lda joylangan libonnxruntime.so (ORT 1.15, 4 KB
+// alignment) olib tashlandi: u IR v10 modelni o'qiy olmaydi va Google
+// Play'ning 16 KB page-size talabini buzadi.
+group 'uz.deepcontrol.onnxruntime_ffi'
+version '2.0.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.7.3'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    namespace 'uz.deepcontrol.onnxruntime_ffi'
+    compileSdk 36
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        minSdk 24
+    }
+}
+
+dependencies {
+    // libonnxruntime.so shu AAR ichidan keladi; Dart tomoni uni
+    // DynamicLibrary.open('libonnxruntime.so') bilan yuklaydi.
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.28.0'
+}

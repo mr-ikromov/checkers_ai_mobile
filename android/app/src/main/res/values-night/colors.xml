@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- To'q rejim foni — AppPalette.dark.background. -->
+    <color name="splash_background">#15100B</color>
+</resources>

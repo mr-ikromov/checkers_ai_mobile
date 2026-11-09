@@ -1,0 +1,128 @@
+{
+  "@@locale": "en",
+  "appTitle": "Shashka AI",
+  "appTagline": "Russian checkers against a self-taught neural network",
+  "loadingPreparing": "Preparing the engine",
+  "loadingModel": "Loading the neural network",
+  "loadingReady": "Ready",
+  "loadingFailed": "The neural network could not be loaded",
+  "retry": "Try again",
+  "chooseLanguage": "Choose language",
+  "chooseLanguageHint": "You can change this later in settings",
+  "continueAction": "Continue",
+  "chooseSide": "Choose your pieces",
+  "chooseSideHint": "White always moves first",
+  "sideWhite": "White",
+  "sideBlack": "Black",
+  "play": "Play",
+  "newGame": "New game",
+  "statEvaluation": "Evaluation",
+  "statConfidence": "Confidence",
+  "thinkTime": "Time",
+  "seconds": "{value}s",
+  "@seconds": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "resultWin": "You won!",
+  "resultLoss": "The neural network won",
+  "resultDraw": "Draw",
+  "resultWinBody": "You out-played the network in this game.",
+  "resultLossBody": "The network found the stronger plan this time.",
+  "resultDrawBody": "Neither side could break through.",
+  "playAgain": "Play again",
+  "backToMenu": "Main menu",
+  "menuRules": "Rules",
+  "menuSettings": "Settings",
+  "menuAbout": "About",
+  "statsTitle": "Your record",
+  "statsWins": "Wins",
+  "statsDraws": "Draws",
+  "statsLosses": "Losses",
+  "statsGames": "{count, plural, =0{No games yet} =1{1 game} other{{count} games}}",
+  "@statsGames": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsReset": "Reset record",
+  "statsResetConfirm": "Reset your record? This cannot be undone.",
+  "cancel": "Cancel",
+  "reset": "Reset",
+  "settingsLanguage": "Language",
+  "settingsAnimations": "Move animations",
+  "settingsAnimationsHint": "Turn off for instant moves",
+  "settingsHaptics": "Haptic feedback",
+  "settingsHapticsHint": "Short vibration when a piece lands",
+  "settingsCoordinates": "Board coordinates",
+  "rulesTitle": "Russian checkers",
+  "rulesBoard": "The board",
+  "rulesBoardBody": "An 8×8 board; play happens only on the dark squares. Each side starts with 12 men on the three rows nearest to them. White moves first.",
+  "rulesMoves": "Moving",
+  "rulesMovesBody": "A man steps one square diagonally forward. A king moves any distance along a diagonal.",
+  "rulesCaptures": "Capturing",
+  "rulesCapturesBody": "Capturing is compulsory. A man captures in all four diagonal directions — forward and backward. A king captures at any distance and lands on any free square behind the captured piece.",
+  "rulesChains": "Capture chains",
+  "rulesChainsBody": "A capture that can continue must continue. For a king, if some landing square allows another capture, only such squares may be used. Captured pieces stay on the board as blockers until the chain ends and may not be captured twice (the “Turkish strike” rule).",
+  "rulesPromotion": "Promotion",
+  "rulesPromotionBody": "A man reaching the far row becomes a king immediately — including in the middle of a capture chain, which then continues as a king.",
+  "rulesDraws": "Draws and losses",
+  "rulesDrawsBody": "A player with no legal move loses. The game is a draw after a threefold repetition of a position, or after 30 moves with no capture and no man move.",
+  "aboutHowItPlays": "How the opponent plays",
+  "aboutHowItPlaysBody": "Your opponent is a transformer neural network that learned Russian checkers entirely by playing against itself — no human games, no opening book, no hand-written evaluation. It reads the position and answers with the move it learned to play there.",
+  "aboutStrength": "One strength only",
+  "aboutStrengthBody": "There are no difficulty levels. The network plays the move its policy head rates highest in the position — the move it learned during self-play — and answers instantly. Nothing is bolted on top of it, and nothing is held back.",
+  "aboutOffline": "Fully offline",
+  "aboutOfflineBody": "The network runs on your device. The app has no accounts, no servers and no analytics, and it never sends anything anywhere.",
+  "aboutArchitecture": "Under the hood",
+  "aboutArchitectureBody": "Transformer with {layers} layers over 32 square tokens, a bilinear policy head and a Win/Draw/Loss value head, exported to ONNX and executed on the CPU.",
+  "@aboutArchitectureBody": {
+    "placeholders": {
+      "layers": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutVersion": "Version {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "errorIllegalMove": "That move is not legal",
+  "errorAi": "The neural network could not finish its move",
+  "boardSemanticsPiece": "{square}, {piece}",
+  "@boardSemanticsPiece": {
+    "placeholders": {
+      "square": {
+        "type": "String"
+      },
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "pieceWhiteMan": "white man",
+  "pieceWhiteKing": "white king",
+  "pieceBlackMan": "black man",
+  "pieceBlackKing": "black king",
+  "milliseconds": "{value} ms",
+  "@milliseconds": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsAppearance": "Appearance",
+  "themeSystem": "Follow system",
+  "themeLight": "Light",
+  "themeDark": "Dark"
+}

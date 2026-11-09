@@ -1,0 +1,28 @@
+name: onnxruntime_ffi
+description: >-
+  ONNX Runtime uchun Dart FFI bog'lamalari (Android). Dart kodi gtbluesky/
+  onnxruntime_flutter (MIT) dan olingan, native kutubxona esa Microsoft'ning
+  rasmiy onnxruntime-android AAR'i bilan almashtirilgan: IR v10 modellarni
+  qo'llab-quvvatlaydi va Google Play'ning 16 KB page-size talabiga mos.
+version: 2.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ffi: ^2.1.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        ffiPlugin: true

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Zaxiraga FAQAT sozlamalar va natijalar tushadi. Qolgani (11 MB model
+     fayli) zaxiralanmaydi — u asset'dan qayta chiqariladi. -->
+<full-backup-content>
+    <include domain="sharedpref" path="." />
+</full-backup-content>

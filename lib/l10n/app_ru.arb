@@ -1,0 +1,128 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Шашки ИИ",
+  "appTagline": "Русские шашки против самообучившейся нейросети",
+  "loadingPreparing": "Готовим движок",
+  "loadingModel": "Загружаем нейросеть",
+  "loadingReady": "Готово",
+  "loadingFailed": "Не удалось загрузить нейросеть",
+  "retry": "Повторить",
+  "chooseLanguage": "Выберите язык",
+  "chooseLanguageHint": "Язык можно изменить позже в настройках",
+  "continueAction": "Продолжить",
+  "chooseSide": "Выберите шашки",
+  "chooseSideHint": "Белые всегда начинают",
+  "sideWhite": "Белые",
+  "sideBlack": "Чёрные",
+  "play": "Играть",
+  "newGame": "Новая игра",
+  "statEvaluation": "Оценка",
+  "statConfidence": "Уверенность",
+  "thinkTime": "Время",
+  "seconds": "{value} с",
+  "@seconds": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "resultWin": "Вы выиграли!",
+  "resultLoss": "Нейросеть выиграла",
+  "resultDraw": "Ничья",
+  "resultWinBody": "В этой партии вы переиграли сеть.",
+  "resultLossBody": "На этот раз сеть нашла план сильнее.",
+  "resultDrawBody": "Ни одна сторона не смогла пробиться.",
+  "playAgain": "Ещё раз",
+  "backToMenu": "В меню",
+  "menuRules": "Правила",
+  "menuSettings": "Настройки",
+  "menuAbout": "О приложении",
+  "statsTitle": "Ваша статистика",
+  "statsWins": "Победы",
+  "statsDraws": "Ничьи",
+  "statsLosses": "Поражения",
+  "statsGames": "{count, plural, =0{Игр пока нет} one{{count} игра} few{{count} игры} other{{count} игр}}",
+  "@statsGames": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsReset": "Сбросить статистику",
+  "statsResetConfirm": "Сбросить статистику? Это нельзя отменить.",
+  "cancel": "Отмена",
+  "reset": "Сбросить",
+  "settingsLanguage": "Язык",
+  "settingsAnimations": "Анимация ходов",
+  "settingsAnimationsHint": "Выключите для мгновенных ходов",
+  "settingsHaptics": "Вибрация",
+  "settingsHapticsHint": "Короткий отклик, когда шашка встаёт на место",
+  "settingsCoordinates": "Координаты доски",
+  "rulesTitle": "Русские шашки",
+  "rulesBoard": "Доска",
+  "rulesBoardBody": "Доска 8×8, игра идёт только по тёмным полям. У каждой стороны 12 шашек на трёх ближних рядах. Белые начинают.",
+  "rulesMoves": "Ходы",
+  "rulesMovesBody": "Простая шашка идёт на одно поле по диагонали вперёд. Дамка ходит на любое расстояние по диагонали.",
+  "rulesCaptures": "Взятие",
+  "rulesCapturesBody": "Взятие обязательно. Простая шашка бьёт во всех четырёх диагональных направлениях — вперёд и назад. Дамка бьёт на любом расстоянии и встаёт на любое свободное поле за взятой шашкой.",
+  "rulesChains": "Цепочки взятий",
+  "rulesChainsBody": "Если взятие можно продолжить, его нужно продолжить. Для дамки: если с какого-то поля приземления есть продолжение, можно встать только на такие поля. Взятые шашки остаются на доске как препятствие до конца цепочки и не могут быть взяты дважды («турецкий удар»).",
+  "rulesPromotion": "Превращение",
+  "rulesPromotionBody": "Шашка, дошедшая до последнего ряда, сразу становится дамкой — в том числе посреди цепочки, которая затем продолжается дамкой.",
+  "rulesDraws": "Ничьи и поражения",
+  "rulesDrawsBody": "Игрок без хода проигрывает. Ничья — при трёхкратном повторении позиции или после 30 ходов без взятий и без движения простых шашек.",
+  "aboutHowItPlays": "Как играет соперник",
+  "aboutHowItPlaysBody": "Ваш соперник — трансформерная нейросеть, которая научилась русским шашкам, играя только сама с собой: без партий людей, без дебютной книги, без написанной вручную оценки. Она читает позицию и отвечает тем ходом, которому научилась в ней.",
+  "aboutStrength": "Только одна сила",
+  "aboutStrengthBody": "Уровней сложности нет. Сеть делает ход, который её политика считает лучшим в позиции, — тот, которому она научилась в игре с собой, — и отвечает мгновенно. Сверху ничего не добавляется и ничего не придерживается.",
+  "aboutOffline": "Полностью офлайн",
+  "aboutOfflineBody": "Сеть работает на вашем устройстве. В приложении нет аккаунтов, серверов и аналитики, и оно ничего никуда не отправляет.",
+  "aboutArchitecture": "Внутри",
+  "aboutArchitectureBody": "Трансформер из {layers} слоёв над 32 токенами-полями, билинейная голова политики и голова оценки Win/Draw/Loss, экспорт в ONNX и исполнение на CPU.",
+  "@aboutArchitectureBody": {
+    "placeholders": {
+      "layers": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutVersion": "Версия {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "errorIllegalMove": "Такой ход запрещён",
+  "errorAi": "Нейросеть не смогла завершить ход",
+  "boardSemanticsPiece": "{square}, {piece}",
+  "@boardSemanticsPiece": {
+    "placeholders": {
+      "square": {
+        "type": "String"
+      },
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "pieceWhiteMan": "белая шашка",
+  "pieceWhiteKing": "белая дамка",
+  "pieceBlackMan": "чёрная шашка",
+  "pieceBlackKing": "чёрная дамка",
+  "milliseconds": "{value} мс",
+  "@milliseconds": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsAppearance": "Оформление",
+  "themeSystem": "Как в системе",
+  "themeLight": "Светлая",
+  "themeDark": "Тёмная"
+}

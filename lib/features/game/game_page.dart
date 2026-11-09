@@ -1,0 +1,246 @@
+library;
+
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+
+import '../../core/ai/ai_service.dart';
+import '../../data/settings_store.dart';
+import '../../l10n/app_localizations.dart';
+import '../../ui/theme/app_theme.dart';
+import '../../ui/widgets/common.dart';
+import 'game_controller.dart';
+import 'widgets/board_view.dart';
+import 'widgets/stats_panel.dart';
+
+class GamePage extends StatefulWidget {
+  const GamePage({
+    required this.ai,
+    required this.settings,
+    required this.humanSide,
+    super.key,
+  });
+
+  final AiService ai;
+  final SettingsStore settings;
+  final int humanSide;
+
+  @override
+  State<GamePage> createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+  late final GameController _controller;
+  bool _dialogOpen = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = GameController(
+      searchMove: widget.ai.search,
+      settings: widget.settings,
+    )
+      ..addListener(_onControllerChanged);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _controller.newGame(humanSide: widget.humanSide);
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller
+      ..removeListener(_onControllerChanged)
+      ..dispose();
+    super.dispose();
+  }
+
+  void _onControllerChanged() {
+    if (!mounted) return;
+    if (_controller.error != null) {
+      final l10n = L10n.of(context);
+      final message =
+          _controller.error == 'illegal' ? l10n.errorIllegalMove : l10n.errorAi;
+      _controller.clearError();
+      ScaffoldMessenger.of(context)
+        ..clearSnackBars()
+        ..showSnackBar(SnackBar(content: Text(message)));
+    }
+    if (_controller.hasUnseenResult && !_dialogOpen) {
+      _dialogOpen = true;
+      WidgetsBinding.instance.addPostFrameCallback((_) => _showResult());
+    }
+  }
+
+  Future<void> _showResult() async {
+    final winner = _controller.winner;
+    if (winner == null || !mounted) return;
+    _controller.acknowledgeResult();
+    final l10n = L10n.of(context);
+    final palette = context.palette;
+
+    final (title, body, color, icon) = switch (winner) {
+      0 => (
+          l10n.resultDraw,
+          l10n.resultDrawBody,
+          palette.textDim,
+          Icons.handshake_outlined,
+        ),
+      _ when winner == _controller.humanSide => (
+          l10n.resultWin,
+          l10n.resultWinBody,
+          palette.gold,
+          Icons.emoji_events_outlined,
+        ),
+      _ => (
+          l10n.resultLoss,
+          l10n.resultLossBody,
+          palette.danger,
+          Icons.psychology_outlined,
+        ),
+    };
+
+    final again = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Icon(icon, color: color),
+            const SizedBox(width: AppSpacing.sm),
+            Expanded(child: Text(title)),
+          ],
+        ),
+        content: Text(body),
+        actionsPadding: const EdgeInsets.fromLTRB(
+          AppSpacing.md,
+          0,
+          AppSpacing.md,
+          AppSpacing.md,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(
+              l10n.backToMenu,
+              style: TextStyle(color: palette.textDim),
+            ),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(
+              l10n.playAgain,
+              style: TextStyle(
+                color: palette.gold,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+
+    if (!mounted) return;
+    _dialogOpen = false;
+    if (again ?? false) {
+      await _controller.newGame();
+    } else if (mounted) {
+      Navigator.of(context).maybePop();
+    }
+  }
+
+  Future<void> _confirmNewGame() async {
+    final l10n = L10n.of(context);
+    final palette = context.palette;
+    if (_controller.phase == GamePhase.finished || _controller.ply == 0) {
+      await _controller.newGame();
+      return;
+    }
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.newGame),
+        content: Text(l10n.chooseSideHint),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(l10n.cancel, style: TextStyle(color: palette.textDim)),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text(
+              l10n.newGame,
+              style: TextStyle(
+                color: palette.gold,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+    if ((confirmed ?? false) && mounted) await _controller.newGame();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = L10n.of(context);
+    return AppBackground(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text(
+            l10n.appTitle,
+            style: AppText.title.copyWith(fontSize: 19),
+          ),
+          systemOverlayStyle: systemOverlayFor(context.palette),
+          actions: [
+            IconButton(
+              tooltip: l10n.newGame,
+              onPressed: _confirmNewGame,
+              icon: const Icon(Icons.refresh_rounded),
+            ),
+            const SizedBox(width: AppSpacing.xs),
+          ],
+        ),
+        body: SafeArea(
+          top: false,
+          child: AnimatedBuilder(
+            animation: _controller,
+            builder: (context, _) => LayoutBuilder(
+              builder: (context, constraints) {
+                const chrome = 190.0;
+                final boardSize = math.min(
+                  constraints.maxWidth - AppSpacing.md * 2,
+                  math.max(160.0, constraints.maxHeight - chrome),
+                );
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    AppSpacing.md,
+                    0,
+                    AppSpacing.md,
+                    AppSpacing.md,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: boardSize,
+                        height: boardSize,
+                        child: BoardView(
+                          controller: _controller,
+                          showCoordinates: widget.settings.coordinates,
+                        ),
+                      ),
+                      const SizedBox(height: AppSpacing.lg),
+                      StatsPanel(readout: _controller.readout),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 13+ "themed icon" uchun bir rangli variant. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M54,54m-31,0a31,31 0 1,0 62,0a31,31 0 1,0 -62,0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M38.5,62.5 L35.2,43.8 L45.4,51.6 L54,39.5 L62.6,51.6 L72.8,43.8 L69.5,62.5 Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M37.6,64.4 L70.4,64.4 A1.6,1.6 0 0,1 70.4,69.2 L37.6,69.2 A1.6,1.6 0 0,1 37.6,64.4 Z"
+        android:fillColor="#FFFFFF" />
+</vector>

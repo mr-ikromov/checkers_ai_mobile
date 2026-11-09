@@ -1,0 +1,31 @@
+name: shashka
+description: "Rus shashkasi — o'zi o'rgangan neyron tarmoqqa qarshi. To'liq oflayn."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  onnxruntime_ffi:
+    path: third_party/onnxruntime_ffi
+  shared_preferences: ^2.5.6
+  intl: any
+  flutter_localizations:
+    sdk: flutter
+  crypto: ^3.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  integration_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/models/model.bin

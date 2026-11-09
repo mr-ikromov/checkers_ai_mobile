@@ -1,0 +1,128 @@
+{
+  "@@locale": "uz",
+  "appTitle": "Shashka AI",
+  "appTagline": "O‘zi o‘rgangan neyron tarmoqqa qarshi rus shashkasi",
+  "loadingPreparing": "Dvigatel tayyorlanmoqda",
+  "loadingModel": "Neyron tarmoq yuklanmoqda",
+  "loadingReady": "Tayyor",
+  "loadingFailed": "Neyron tarmoqni yuklab bo‘lmadi",
+  "retry": "Qayta urinish",
+  "chooseLanguage": "Tilni tanlang",
+  "chooseLanguageHint": "Keyinroq sozlamalarda o‘zgartirish mumkin",
+  "continueAction": "Davom etish",
+  "chooseSide": "Toshingizni tanlang",
+  "chooseSideHint": "Oq doim birinchi yuradi",
+  "sideWhite": "Oq",
+  "sideBlack": "Qora",
+  "play": "O‘ynash",
+  "newGame": "Yangi o‘yin",
+  "statEvaluation": "Baho",
+  "statConfidence": "Ishonch",
+  "thinkTime": "Vaqt",
+  "seconds": "{value} s",
+  "@seconds": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "resultWin": "Siz yutdingiz!",
+  "resultLoss": "Neyron tarmoq yutdi",
+  "resultDraw": "Durang",
+  "resultWinBody": "Bu partiyada siz tarmoqdan ustun keldingiz.",
+  "resultLossBody": "Bu safar tarmoq kuchliroq rejani topdi.",
+  "resultDrawBody": "Hech bir tomon yorib o‘tolmadi.",
+  "playAgain": "Yana o‘ynash",
+  "backToMenu": "Asosiy menyu",
+  "menuRules": "Qoidalar",
+  "menuSettings": "Sozlamalar",
+  "menuAbout": "Ilova haqida",
+  "statsTitle": "Natijalaringiz",
+  "statsWins": "G‘alaba",
+  "statsDraws": "Durang",
+  "statsLosses": "Mag‘lubiyat",
+  "statsGames": "{count, plural, =0{Hali o‘yin yo‘q} other{{count} o‘yin}}",
+  "@statsGames": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsReset": "Natijalarni tozalash",
+  "statsResetConfirm": "Natijalar tozalanadi. Buni qaytarib bo‘lmaydi.",
+  "cancel": "Bekor qilish",
+  "reset": "Tozalash",
+  "settingsLanguage": "Til",
+  "settingsAnimations": "Yurish animatsiyasi",
+  "settingsAnimationsHint": "O‘chirilsa yurishlar bir zumda bo‘ladi",
+  "settingsHaptics": "Tebranish",
+  "settingsHapticsHint": "Tosh joyiga tushganda qisqa tebranish",
+  "settingsCoordinates": "Doska koordinatalari",
+  "rulesTitle": "Rus shashkasi",
+  "rulesBoard": "Doska",
+  "rulesBoardBody": "8×8 doska, o‘yin faqat qora kataklarda boradi. Har tomonda 12 ta shashka, o‘ziga eng yaqin uch qatorda. Oq birinchi yuradi.",
+  "rulesMoves": "Yurish",
+  "rulesMovesBody": "Oddiy shashka diagonal bo‘ylab bir katak oldinga yuradi. Damka diagonal bo‘ylab istalgan masofaga yuradi.",
+  "rulesCaptures": "Urish",
+  "rulesCapturesBody": "Urish majburiy. Oddiy shashka to‘rt diagonal yo‘nalishda — oldinga ham, orqaga ham — uradi. Damka istalgan masofadan uradi va urilgan shashka ortidagi bo‘sh katakka tushadi.",
+  "rulesChains": "Zanjirli urish",
+  "rulesChainsBody": "Davom ettirish mumkin bo‘lgan urish davom ettirilishi shart. Damka uchun: agar biror tushish katagidan davom bo‘lsa, faqat shunday kataklarga tushiladi. Urilgan shashkalar zanjir tugaguncha doskada to‘siq bo‘lib qoladi va ikkinchi marta urilmaydi («turk zarbasi»).",
+  "rulesPromotion": "Damkaga aylanish",
+  "rulesPromotionBody": "Oxirgi qatorga yetgan shashka darhol damka bo‘ladi — zanjir o‘rtasida ham; zanjir damka sifatida davom etadi.",
+  "rulesDraws": "Durang va mag‘lubiyat",
+  "rulesDrawsBody": "Yura olmagan o‘yinchi yutqazadi. Pozitsiya uch marta takrorlansa yoki 30 yurish davomida urish ham, oddiy shashka yurishi ham bo‘lmasa — durang.",
+  "aboutHowItPlays": "Raqib qanday o‘ynaydi",
+  "aboutHowItPlaysBody": "Raqibingiz — transformer neyron tarmoq. U rus shashkasini faqat o‘zi bilan o‘ynab o‘rgandi: inson partiyalarisiz, debyut kitobisiz, qo‘lda yozilgan bahosiz. Pozitsiyani o‘qiydi va unda o‘rgangan yurishini qaytaradi.",
+  "aboutStrength": "Faqat bitta kuch",
+  "aboutStrengthBody": "Qiyinlik darajalari yo‘q. Tarmoq pozitsiyada o‘z policy boshi eng yuqori baholagan yurishni — o‘zi bilan o‘ynab o‘rgangan yurishni — qiladi va bir zumda javob beradi. Ustiga hech narsa qo‘shilmaydi, hech narsa yashirilmaydi.",
+  "aboutOffline": "To‘liq oflayn",
+  "aboutOfflineBody": "Tarmoq sizning qurilmangizda ishlaydi. Ilovada akkaunt, server va analitika yo‘q; u hech qayerga hech narsa yubormaydi.",
+  "aboutArchitecture": "Ichida nima bor",
+  "aboutArchitectureBody": "32 katak-token ustida {layers} qatlamli transformer, bilinear policy boshi va Win/Draw/Loss baho boshi; ONNX ga eksport qilinib, protsessorda bajariladi.",
+  "@aboutArchitectureBody": {
+    "placeholders": {
+      "layers": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutVersion": "Versiya {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "errorIllegalMove": "Bu yurish qoidaga to‘g‘ri kelmaydi",
+  "errorAi": "Neyron tarmoq yurishni tugatolmadi",
+  "boardSemanticsPiece": "{square}, {piece}",
+  "@boardSemanticsPiece": {
+    "placeholders": {
+      "square": {
+        "type": "String"
+      },
+      "piece": {
+        "type": "String"
+      }
+    }
+  },
+  "pieceWhiteMan": "oq shashka",
+  "pieceWhiteKing": "oq damka",
+  "pieceBlackMan": "qora shashka",
+  "pieceBlackKing": "qora damka",
+  "milliseconds": "{value} ms",
+  "@milliseconds": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsAppearance": "Ko‘rinish",
+  "themeSystem": "Tizimdagidek",
+  "themeLight": "Yorug‘",
+  "themeDark": "To‘q"
+}
