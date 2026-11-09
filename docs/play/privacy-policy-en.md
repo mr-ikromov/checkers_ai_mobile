@@ -48,4 +48,4 @@ and the date above will be updated.
 
 ## Contact
 
-Questions: `[CONTACT EMAIL]`
+Questions: `deepcontroluz@gmail.com`

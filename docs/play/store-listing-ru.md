@@ -80,6 +80,6 @@
 
 ## Контакты
 
-- Email: *(укажите свою почту)*
+- Email: deepcontroluz@gmail.com
 - Сайт: *(необязательно)*
-- Политика конфиденциальности: *(URL, где размещён privacy-policy.html)*
+- Политика конфиденциальности: https://mr-ikromov.github.io/checkers_ai_mobile/play/privacy-policy.html

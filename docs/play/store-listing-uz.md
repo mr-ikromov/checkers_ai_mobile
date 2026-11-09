@@ -81,6 +81,6 @@ Hammasi — neyron tarmoq ham — sizning qurilmangizda.
 
 ## Aloqa
 
-- Email: *(o'z pochtangizni kiriting)*
+- Email: deepcontroluz@gmail.com
 - Veb-sayt: *(ixtiyoriy)*
-- Maxfiylik siyosati: *(privacy-policy.html joylashgan URL)*
+- Maxfiylik siyosati: https://mr-ikromov.github.io/checkers_ai_mobile/play/privacy-policy.html

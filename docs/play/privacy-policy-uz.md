@@ -51,4 +51,4 @@ yuqoridagi sana yangilanadi.
 
 ## Aloqa
 
-Savollar bo‘lsa: `[ALOQA UCHUN EMAIL]`
+Savollar bo‘lsa: `deepcontroluz@gmail.com`

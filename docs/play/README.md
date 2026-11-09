@@ -125,15 +125,22 @@ Tavsiya etilgan tartib: `02-board-start`, `03-board-play`, `01-home`,
 
 Play barcha ilovalardan maxfiylik siyosati **URL**ini talab qiladi.
 
-Tayyor sahifa: [`privacy-policy.html`](privacy-policy.html) — uchala tilda,
-bitta faylda. Uni istalgan joyga qo'ying va URL'ni Console'ga kiriting.
+Sahifa tayyor va repozitoriyada: [`privacy-policy.html`](privacy-policy.html)
+— uchala tilda, aloqa pochtasi kiritilgan.
 
-Eng oson bepul variantlar:
+Uni bepul joylashtirish (GitHub Pages, 1 daqiqa):
 
-- **GitHub Pages** — repozitoriyga `docs/` papkasida qo'yib, Settings →
-  Pages → "Deploy from branch" → `main` / `docs`. URL:
-  `https://<foydalanuvchi>.github.io/<repo>/play/privacy-policy.html`
-- **Google Sites** yoki oddiy hosting — faylni yuklab, havolani oling.
+1. github.com/mr-ikromov/checkers_ai_mobile → **Settings** → **Pages**
+2. Source: **Deploy from a branch**
+3. Branch: **main**, papka: **/docs** → **Save**
+4. 1-2 daqiqadan keyin sahifa ochiladi:
+
+```
+https://mr-ikromov.github.io/checkers_ai_mobile/play/privacy-policy.html
+```
+
+Shu URL'ni Play Console → **Store listing** → *Privacy Policy* maydoniga
+va **App content** → *Privacy policy* ga kiriting.
 
 Matn variantlari alohida ham bor: `privacy-policy-uz.md`,
 `privacy-policy-ru.md`, `privacy-policy-en.md`.

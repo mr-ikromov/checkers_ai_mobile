@@ -81,6 +81,6 @@ Everything, the neural network included, runs on your device.
 
 ## Contact
 
-- Email: *(your email address)*
+- Email: deepcontroluz@gmail.com
 - Website: *(optional)*
-- Privacy policy: *(URL where privacy-policy.html is hosted)*
+- Privacy policy: https://mr-ikromov.github.io/checkers_ai_mobile/play/privacy-policy.html
