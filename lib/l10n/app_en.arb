@@ -30,9 +30,6 @@
   "resultWin": "You won!",
   "resultLoss": "The neural network won",
   "resultDraw": "Draw",
-  "resultWinBody": "You out-played the network in this game.",
-  "resultLossBody": "The network found the stronger plan this time.",
-  "resultDrawBody": "Neither side could break through.",
   "playAgain": "Play again",
   "backToMenu": "Main menu",
   "menuRules": "Rules",
@@ -51,7 +48,6 @@
     }
   },
   "statsReset": "Reset record",
-  "statsResetConfirm": "Reset your record? This cannot be undone.",
   "cancel": "Cancel",
   "reset": "Reset",
   "settingsLanguage": "Language",

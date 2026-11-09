@@ -127,6 +127,17 @@ void main() {
       await _shot(tester, '$prefix/05-about');
       await _goBack(tester);
 
+      await tester.tap(find.text(l10n.menuSettings));
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text(l10n.statsReset), 240);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(l10n.statsReset));
+      await tester.pumpAndSettle();
+      await _shot(tester, '$prefix/06-dialog');
+      await tester.tap(find.text(l10n.cancel));
+      await tester.pumpAndSettle();
+      await _goBack(tester);
+
       // O'yin: bir necha yurish qilib, ko'rsatkichlar to'lgan holatni olamiz.
       await tester.tap(find.text(l10n.play));
       await tester.pumpAndSettle();

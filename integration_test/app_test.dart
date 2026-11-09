@@ -224,7 +224,7 @@ void main() {
 
     await _pumpUntil(
       tester,
-      () => find.byType(AlertDialog).evaluate().isNotEmpty,
+      () => find.byType(AppDialog).evaluate().isNotEmpty,
       timeout: const Duration(seconds: 20),
       reason: 'natija dialogi chiqmadi',
     );

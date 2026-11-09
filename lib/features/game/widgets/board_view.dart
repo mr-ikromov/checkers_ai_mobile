@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../../../core/engine/position.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../ui/theme/app_theme.dart';
+import '../../../ui/widgets/common.dart';
 import '../game_controller.dart';
 
 class BoardView extends StatelessWidget {
@@ -227,18 +228,10 @@ class PieceView extends StatelessWidget {
         ),
         child: Center(
           child: isKing
-              ? Text(
-                  '♔',
-                  style: TextStyle(
-                    fontSize: size * 0.46,
-                    height: 1,
-                    color: isWhite
-                        ? BoardColors.walnut
-                        : BoardColors.accentBright,
-                    shadows: const [
-                      Shadow(color: Color(0x80000000), blurRadius: 2),
-                    ],
-                  ),
+              ? CrownMark(
+                  size: size * 0.46,
+                  color:
+                      isWhite ? BoardColors.walnut : BoardColors.accentBright,
                 )
               : FractionallySizedBox(
                   widthFactor: 0.62,

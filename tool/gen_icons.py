@@ -124,7 +124,7 @@ def draw_icon(size: int, *, rounded: bool) -> Image.Image:
     draw.ellipse([cx - inner, cy - inner, cx + inner, cy + inner],
                  outline=(120, 95, 55, 56), width=max(1, round(s * 0.015)))
 
-    crown(draw, cx, cy, s / 108 * 1.0, GOLD_DEEP, GOLD_BRIGHT)
+    crown(draw, cx, cy, s / 108 * 0.82, GOLD_DEEP, GOLD_BRIGHT)
 
     background.alpha_composite(layer)
     return background.resize((size, size), Image.LANCZOS)

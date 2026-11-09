@@ -30,9 +30,6 @@
   "resultWin": "Siz yutdingiz!",
   "resultLoss": "Neyron tarmoq yutdi",
   "resultDraw": "Durang",
-  "resultWinBody": "Bu partiyada siz tarmoqdan ustun keldingiz.",
-  "resultLossBody": "Bu safar tarmoq kuchliroq rejani topdi.",
-  "resultDrawBody": "Hech bir tomon yorib o‘tolmadi.",
   "playAgain": "Yana o‘ynash",
   "backToMenu": "Asosiy menyu",
   "menuRules": "Qoidalar",
@@ -51,7 +48,6 @@
     }
   },
   "statsReset": "Natijalarni tozalash",
-  "statsResetConfirm": "Natijalar tozalanadi. Buni qaytarib bo‘lmaydi.",
   "cancel": "Bekor qilish",
   "reset": "Tozalash",
   "settingsLanguage": "Til",

@@ -33,11 +33,6 @@ android/*.keystore
 app.*.symbols
 app.*.map.json
 
-# Neural network: packed and encrypted by tool/pack_model.py.
-# The weights are not distributed through this repository.
-assets/models/*.bin
-lib/core/ai/model_key.dart
-
 # IDE
 .idea/
 .vscode/

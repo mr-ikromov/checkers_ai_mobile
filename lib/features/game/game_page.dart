@@ -76,72 +76,23 @@ class _GamePageState extends State<GamePage> {
     if (winner == null || !mounted) return;
     _controller.acknowledgeResult();
     final l10n = L10n.of(context);
-    final palette = context.palette;
-
-    final (title, body, color, icon) = switch (winner) {
-      0 => (
-          l10n.resultDraw,
-          l10n.resultDrawBody,
-          palette.textDim,
-          Icons.handshake_outlined,
-        ),
-      _ when winner == _controller.humanSide => (
-          l10n.resultWin,
-          l10n.resultWinBody,
-          palette.gold,
-          Icons.emoji_events_outlined,
-        ),
-      _ => (
-          l10n.resultLoss,
-          l10n.resultLossBody,
-          palette.danger,
-          Icons.psychology_outlined,
-        ),
+    final title = switch (winner) {
+      0 => l10n.resultDraw,
+      _ when winner == _controller.humanSide => l10n.resultWin,
+      _ => l10n.resultLoss,
     };
 
-    final again = await showDialog<bool>(
-      context: context,
+    final again = await AppDialog.show(
+      context,
+      title: title,
+      dismissLabel: l10n.backToMenu,
+      confirmLabel: l10n.playAgain,
       barrierDismissible: false,
-      builder: (context) => AlertDialog(
-        title: Row(
-          children: [
-            Icon(icon, color: color),
-            const SizedBox(width: AppSpacing.sm),
-            Expanded(child: Text(title)),
-          ],
-        ),
-        content: Text(body),
-        actionsPadding: const EdgeInsets.fromLTRB(
-          AppSpacing.md,
-          0,
-          AppSpacing.md,
-          AppSpacing.md,
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(
-              l10n.backToMenu,
-              style: TextStyle(color: palette.textDim),
-            ),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(
-              l10n.playAgain,
-              style: TextStyle(
-                color: palette.gold,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-        ],
-      ),
     );
 
     if (!mounted) return;
     _dialogOpen = false;
-    if (again ?? false) {
+    if (again) {
       await _controller.newGame();
     } else if (mounted) {
       Navigator.of(context).maybePop();
@@ -150,35 +101,17 @@ class _GamePageState extends State<GamePage> {
 
   Future<void> _confirmNewGame() async {
     final l10n = L10n.of(context);
-    final palette = context.palette;
     if (_controller.phase == GamePhase.finished || _controller.ply == 0) {
       await _controller.newGame();
       return;
     }
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.newGame),
-        content: Text(l10n.chooseSideHint),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(l10n.cancel, style: TextStyle(color: palette.textDim)),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(
-              l10n.newGame,
-              style: TextStyle(
-                color: palette.gold,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-        ],
-      ),
+    final confirmed = await AppDialog.show(
+      context,
+      title: l10n.newGame,
+      dismissLabel: l10n.cancel,
+      confirmLabel: l10n.newGame,
     );
-    if ((confirmed ?? false) && mounted) await _controller.newGame();
+    if (confirmed && mounted) await _controller.newGame();
   }
 
   @override

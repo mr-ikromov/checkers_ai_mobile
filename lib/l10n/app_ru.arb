@@ -30,9 +30,6 @@
   "resultWin": "Вы выиграли!",
   "resultLoss": "Нейросеть выиграла",
   "resultDraw": "Ничья",
-  "resultWinBody": "В этой партии вы переиграли сеть.",
-  "resultLossBody": "На этот раз сеть нашла план сильнее.",
-  "resultDrawBody": "Ни одна сторона не смогла пробиться.",
   "playAgain": "Ещё раз",
   "backToMenu": "В меню",
   "menuRules": "Правила",
@@ -51,7 +48,6 @@
     }
   },
   "statsReset": "Сбросить статистику",
-  "statsResetConfirm": "Сбросить статистику? Это нельзя отменить.",
   "cancel": "Отмена",
   "reset": "Сбросить",
   "settingsLanguage": "Язык",

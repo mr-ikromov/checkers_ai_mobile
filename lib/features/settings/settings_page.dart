@@ -19,31 +19,13 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   Future<void> _resetRecord() async {
     final l10n = L10n.of(context);
-    final palette = context.palette;
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.statsReset),
-        content: Text(l10n.statsResetConfirm),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(l10n.cancel, style: TextStyle(color: palette.textDim)),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(
-              l10n.reset,
-              style: TextStyle(
-                color: palette.danger,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-        ],
-      ),
+    final confirmed = await AppDialog.show(
+      context,
+      title: l10n.statsReset,
+      dismissLabel: l10n.cancel,
+      confirmLabel: l10n.reset,
     );
-    if ((confirmed ?? false) && mounted) {
+    if (confirmed && mounted) {
       await widget.settings.resetRecord();
       if (mounted) setState(() {});
     }

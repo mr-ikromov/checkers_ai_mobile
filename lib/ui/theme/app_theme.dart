@@ -12,6 +12,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     required this.panelFill,
     required this.panelHighlight,
     required this.panelBorder,
+    required this.dialogBlue,
+    required this.dialogRed,
     required this.text,
     required this.textDim,
     required this.textMute,
@@ -34,6 +36,10 @@ class AppPalette extends ThemeExtension<AppPalette> {
   final Color panelHighlight;
 
   final Color panelBorder;
+
+  final Color dialogBlue;
+
+  final Color dialogRed;
 
   final Color text;
   final Color textDim;
@@ -58,6 +64,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     panelFill: Color(0x0DFFFFFF),
     panelHighlight: Color(0x1FD8A943),
     panelBorder: Color(0x29D8A943),
+    dialogBlue: Color(0xFF2F6FD0),
+    dialogRed: Color(0xFFD1402F),
     text: Color(0xFFEFE4CB),
     textDim: Color(0xFFA48D68),
     textMute: Color(0xFF7C6A4A),
@@ -81,6 +89,8 @@ class AppPalette extends ThemeExtension<AppPalette> {
     panelFill: Color(0xA8FFFFFF),
     panelHighlight: Color(0x2EB9892C),
     panelBorder: Color(0x3D9A763A),
+    dialogBlue: Color(0xFF2563EB),
+    dialogRed: Color(0xFFD1402F),
     text: Color(0xFF2C1E0C),
     textDim: Color(0xFF7A6342),
     textMute: Color(0xFF9C8762),
