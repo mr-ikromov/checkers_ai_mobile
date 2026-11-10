@@ -107,6 +107,7 @@ Grafikalar:
 | Ilova ikonkasi | `graphics/play_icon_512.png` | 512×512 PNG ✔ |
 | Feature graphic | `graphics/play_feature_1024x500.png` | 1024×500 PNG ✔ |
 | Telefon skrinshotlari | `graphics/screenshots/<til>/` | 1080×1920 (9:16), 6 ta ✔ |
+| Planshet skrinshotlari | `graphics/screenshots-tablet/<til>/` | 1440×2560 (9:16), 6 ta ✔ |
 
 Skrinshotlar har til uchun alohida (`uz/`, `ru/`, `en/`) — Play Console'da
 mos tilga yuklang. Minimal 2 ta kerak, bizda 5 ta.
@@ -115,10 +116,23 @@ Tavsiya etilgan tartib: `02-board-start`, `03-board-play`, `01-home`,
 `04-rules`, `05-about`.
 
 > Play skrinshot nisbati **16:9 yoki 9:16** bo'lishini talab qiladi.
-> `flutter drive` ularni qurilma ekrani o'lchamida oladi (masalan
-> 1080×2270), shuning uchun qayta yaratgandan keyin
-> `python3 tool/crop_screenshots.py` ni ishga tushiring — u ortiqcha
-> balandlikni chetlardagi bo'sh joydan kesib, 1080×1920 ga keltiradi.
+> `flutter drive` ularni qurilma ekrani o'lchamida oladi, shuning uchun
+> qayta yaratgandan keyin `python3 tool/crop_screenshots.py [papka]` ni
+> ishga tushiring — u ortiqcha balandlikni chetlardagi bo'sh joydan
+> kesadi. Maqsadli balandlik enidan hisoblanadi, shuning uchun telefon
+> (1080×1920) va planshet (1440×2560) bir xil ishlov oladi.
+>
+> Planshet skrinshotlari uchun ekranni vaqtincha 9:16 ga yaqin
+> o'lchamga qo'yish kerak (`adb shell wm size 1440x2800`), chiqishni esa
+> `SHOTS_DIR` bilan ajratish:
+>
+> ```bash
+> SHOTS_DIR=docs/play/graphics/screenshots-tablet flutter drive --profile \
+>   --driver=test_driver/screenshots.dart \
+>   --target=integration_test/screenshots_test.dart -d <planshet>
+> ```
+>
+> Tugagach `adb shell wm size reset`.
 
 > Planshet skrinshotlari majburiy emas, lekin bo'lsa ilova planshetlarda
 > ham tavsiya ro'yxatlariga tushadi. Olish uchun planshet yoki emulyator

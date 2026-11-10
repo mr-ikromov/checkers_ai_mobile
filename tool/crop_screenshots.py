@@ -9,12 +9,16 @@ Skript ortiqcha balandlikni kontentdan emas, chetlardagi bo'sh joydan
 oladi; bo'sh joy yetmasa, kesim chizig'ini elementlar orasidagi eng
 kam kontrastli qatorga suradi.
 
+Maqsadli balandlik enidan hisoblanadi (9:16), shuning uchun telefon ham,
+planshet skrinshotlari ham bir xil ishlov oladi.
+
 Ishlatish:
-    python3 tool/crop_screenshots.py
+    python3 tool/crop_screenshots.py [papka]
 """
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -23,7 +27,6 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 SHOTS = ROOT / "docs/play/graphics/screenshots"
 
-TARGET_H = 1920
 MIN_TOP = 40
 CONTENT_THRESHOLD = 6.0
 SNAP_RANGE = 45
@@ -33,7 +36,8 @@ def crop_916(path: Path) -> Image.Image:
     img = Image.open(path).convert("RGB")
     rows = np.asarray(img.convert("L"), dtype=np.float32)
     height = rows.shape[0]
-    need = height - TARGET_H
+    target = round(img.size[0] * 16 / 9)
+    need = height - target
     if need <= 0:
         return img
 
@@ -65,9 +69,10 @@ def crop_916(path: Path) -> Image.Image:
 
 
 def main() -> None:
-    for path in sorted(SHOTS.glob("*/*.png")):
+    root = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SHOTS
+    for path in sorted(root.glob("*/*.png")):
         out = crop_916(path)
-        if out.size != (1080, TARGET_H):
+        if round(out.size[0] * 16 / 9) != out.size[1]:
             raise SystemExit(f"{path}: {out.size[0]}x{out.size[1]}")
         out.save(path, optimize=True)
         print(f"{path.relative_to(ROOT)}  {out.size[0]}x{out.size[1]}")
