@@ -2,14 +2,9 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// Релиз имзоси uchun kalitlar `android/key.properties` da (git'ga kirmaydi).
-// Fayl bo'lmasa, release debug kalit bilan imzolanadi — shunda
-// `flutter run --release` sinov uchun baribir ishlaydi, lekin bunday
-// APK/AAB ni Play Console qabul qilmaydi.
 val keystoreProperties = Properties().apply {
     val file = rootProject.file("key.properties")
     if (file.exists()) {
@@ -30,7 +25,6 @@ android {
 
     defaultConfig {
         applicationId = "uz.deepcontrol.shashka"
-        // ONNX Runtime 1.28 Android AAR minSdk 24 talab qiladi.
         minSdk = 24
         targetSdk = 36
         versionCode = flutter.versionCode
@@ -67,11 +61,7 @@ android {
 
     packaging {
         jniLibs {
-            // ONNX Runtime Dart'dan FFI orqali chaqiriladi, uning Java/JNI
-            // ko'prigi ishlatilmaydi — har ABI uchun ~1 MB tejaladi.
             excludes += "**/libonnxruntime4j_jni.so"
-            // Android 15+ 16 KB sahifa hajmi talabi: kutubxonalar APK ichida
-            // siqilmagan va tekislangan holda turishi kerak.
             useLegacyPackaging = false
         }
         resources {
@@ -85,15 +75,12 @@ android {
     }
 
     bundle {
-        // Play har qurilmaga faqat kerakli ABI va tilni yuboradi.
         abi { enableSplit = true }
         language { enableSplit = true }
         density { enableSplit = true }
     }
 
     androidResources {
-        // ONNX modeli asset'dan fayl tizimiga nusxalanadi; siqib qo'yilsa
-        // nusxalash sekinlashadi va hech qanday foyda bermaydi.
         noCompress += listOf("onnx", "data")
     }
 }

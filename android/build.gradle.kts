@@ -16,10 +16,6 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
 
-// Ba'zi pluginlar (masalan onnxruntime) eski compileSdk bilan keladi, AndroidX
-// esa compileSdk >= 34 talab qiladi. Barcha kutubxona modullarini bitta
-// zamonaviy compileSdk ga keltiramiz. Bu blok evaluationDependsOn'dan OLDIN
-// turishi kerak — aks holda loyiha allaqachon baholangan bo'ladi.
 subprojects {
     afterEvaluate {
         val ext = extensions.findByName("android")

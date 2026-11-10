@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Android 12+ uchun zaxira/qurilma almashtirish qoidalari.
-     Faqat sozlamalar va natijalar ko'chiriladi. -->
 <data-extraction-rules>
     <cloud-backup>
         <include domain="sharedpref" path="." />

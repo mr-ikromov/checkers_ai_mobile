@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Android jarayon ishga tushgandan Flutter birinchi kadrni
-     chizguncha ko'rinadi. Fon va belgi ilovaning kirish ekraniga mos. -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@color/splash_background" />
     <item>

@@ -34,13 +34,16 @@ saqlaydi va hech qayerga yubormaydi:
 | Tanlangan tomon (oq/qora) | `SharedPreferences` | Yo'q |
 | Mavzu, animatsiya, tebranish, koordinata sozlamalari | `SharedPreferences` | Yo'q |
 | G'alaba / durang / mag'lubiyat soni | `SharedPreferences` | Yo'q |
-| ONNX model fayli (asset nusxasi) | ilovaning ichki papkasi | Yo'q |
 
 Bu ma'lumotlar Android'ning standart zaxiralash (Auto Backup) mexanizmi
 orqali foydalanuvchining o'z Google Drive'iga tushishi mumkin — bu
 Google'ning o'z platforma funksiyasi va Data safety anketasida
-e'lon qilinishi talab qilinmaydi. Model fayli zaxiradan chiqarib
-tashlangan (`res/xml/backup_rules.xml`).
+e'lon qilinishi talab qilinmaydi. Zaxiraga faqat `SharedPreferences`
+tushadi (`res/xml/backup_rules.xml`).
+
+ONNX model fayli qurilma xotirasiga umuman yozilmaydi: u ilova
+ichida shifrlangan asset sifatida turadi va faqat operativ xotirada
+ochilib, to'g'ridan-to'g'ri ONNX Runtime'ga uzatiladi.
 
 ---
 

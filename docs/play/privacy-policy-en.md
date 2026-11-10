@@ -23,8 +23,9 @@ storage, and is never sent anywhere:
 - the selected language;
 - the selected side (white or black);
 - theme (light/dark), animation, haptics and coordinate preferences;
-- your win / draw / loss counts;
-- the neural-network model file (copied out of the app itself).
+- your win / draw / loss counts.
+
+The neural-network model stays encrypted inside the app itself. It is never written to device storage and is decrypted only in memory while you play.
 
 Uninstalling the app deletes all of it. You can also clear it at any
 time from the app's settings ("Reset record") or with "Clear data" in

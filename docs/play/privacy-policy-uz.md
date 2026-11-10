@@ -24,8 +24,9 @@ papkasida saqlanadi va hech qayerga yuborilmaydi:
 - tanlangan til;
 - tanlangan tomon (oq yoki qora);
 - mavzu (yorug‘/to‘q), animatsiya, tebranish va koordinata sozlamalari;
-- g‘alaba, durang va mag‘lubiyatlar soni;
-- neyron tarmoq model fayli (ilova ichidan nusxalanadi).
+- g‘alaba, durang va mag‘lubiyatlar soni.
+
+Neyron tarmoq modeli ilovaning o‘z ichida shifrlangan holda turadi, qurilma xotirasiga umuman yozilmaydi va faqat o‘yin davomida xotirada ochiladi.
 
 Ilovani o‘chirsangiz, bu ma’lumotlar ham o‘chadi. Ularni istalgan
 vaqtda ilova sozlamalaridan («Natijalarni tozalash») yoki Android

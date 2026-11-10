@@ -45,9 +45,6 @@
     background: rgba(0,0,0,.3); padding: 2px 6px; border-radius: 5px;
     font-size: 14px;
   }
-  @media (prefers-color-scheme: light) {
-    /* Sahifa ataylab bitta to'q ko'rinishda — ilova dizayni bilan bir xil. */
-  }
 </style>
 </head>
 <body>
@@ -92,9 +89,13 @@
       <li>tanlangan til;</li>
       <li>tanlangan tomon (oq yoki qora);</li>
       <li>mavzu (yorug‘/to‘q), animatsiya, tebranish va koordinata sozlamalari;</li>
-      <li>g‘alaba, durang va mag‘lubiyatlar soni;</li>
-      <li>neyron tarmoq model fayli (ilova ichidan nusxalanadi).</li>
+      <li>g‘alaba, durang va mag‘lubiyatlar soni.</li>
     </ul>
+    <p>
+      Neyron tarmoq modeli ilovaning o‘z ichida shifrlangan holda turadi,
+      qurilma xotirasiga umuman yozilmaydi va faqat o‘yin davomida
+      xotirada ochiladi.
+    </p>
     <p>
       Ilovani o‘chirsangiz, bu ma’lumotlar ham o‘chadi. Ularni istalgan
       vaqtda ilova sozlamalaridan («Natijalarni tozalash») yoki Android
@@ -155,9 +156,13 @@
       <li>выбранный язык;</li>
       <li>выбранная сторона (белые или чёрные);</li>
       <li>тема (светлая/тёмная), настройки анимации, вибрации и координат;</li>
-      <li>количество побед, ничьих и поражений;</li>
-      <li>файл модели нейросети (копируется из самого приложения).</li>
+      <li>количество побед, ничьих и поражений.</li>
     </ul>
+    <p>
+      Модель нейросети хранится в зашифрованном виде внутри самого
+      приложения, никогда не записывается в память устройства и
+      расшифровывается только в оперативной памяти во время игры.
+    </p>
     <p>
       При удалении приложения эти данные удаляются вместе с ним. Их также
       можно удалить в любой момент: в настройках приложения («Сбросить
@@ -217,9 +222,13 @@
       <li>the selected language;</li>
       <li>the selected side (white or black);</li>
       <li>theme (light/dark), animation, haptics and coordinate preferences;</li>
-      <li>your win / draw / loss counts;</li>
-      <li>the neural-network model file (copied out of the app itself).</li>
+      <li>your win / draw / loss counts.</li>
     </ul>
+    <p>
+      The neural-network model stays encrypted inside the app itself. It is
+      never written to device storage and is decrypted only in memory while
+      you play.
+    </p>
     <p>
       Uninstalling the app deletes all of it. You can also clear it at any
       time from the app's settings ("Reset record") or with "Clear data" in
