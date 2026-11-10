@@ -4,7 +4,8 @@
 FAQAT ishlab chiqish vositasi — ilovaga kirmaydi. Natijalar repozitoriyga
 yoziladi va qayta yaratish shart emas. Android 8.0+ da adaptive icon
 (vektor XML) ishlatiladi; bu skript eski launcherlar uchun PNG mipmap'lar
-va Play Console uchun ikonka/feature grafikasini chiqaradi.
+va Play Console uchun ikonkani chiqaradi. Feature grafikasi alohida
+tayyorlangan va qo'lda saqlanadi.
 
 Ishlatish:
     python3 tool/gen_icons.py
@@ -130,40 +131,6 @@ def draw_icon(size: int, *, rounded: bool) -> Image.Image:
     return background.resize((size, size), Image.LANCZOS)
 
 
-def feature_graphic() -> Image.Image:
-    """Play Store uchun 1024x500 feature grafikasi."""
-    w, h = 1024 * 2, 500 * 2
-    img = radial_background(max(w, h), (w * 0.2, h * 0.1), max(w, h) * 1.1,
-                            BG_INNER, BG_OUTER).crop((0, 0, w, h))
-    img = img.convert("RGBA")
-    draw = ImageDraw.Draw(img)
-
-    # Chap tomonda doska bo'lagi — mavzuni darhol tanitadi.
-    cell = h * 0.145
-    ox, oy = w * 0.055, h * 0.5 - cell * 2
-    for r in range(4):
-        for c in range(4):
-            dark = (r + c) % 2 == 1
-            x0 = ox + c * cell
-            y0 = oy + r * cell
-            draw.rectangle([x0, y0, x0 + cell, y0 + cell],
-                           fill=(122, 74, 38) if dark else (232, 210, 166))
-    for r, c, white in ((0, 1, False), (1, 2, False), (2, 1, True), (3, 2, True)):
-        pr = cell * 0.37
-        px = ox + c * cell + cell / 2
-        py = oy + r * cell + cell / 2
-        draw.ellipse([px - pr, py - pr + cell * 0.04, px + pr, py + pr + cell * 0.04],
-                     fill=SHADOW)
-        draw.ellipse([px - pr, py - pr, px + pr, py + pr],
-                     fill=IVORY if white else (34, 28, 23),
-                     outline=(205, 191, 156) if white else (12, 9, 7),
-                     width=max(1, round(cell * 0.035)))
-
-    icon = draw_icon(round(h * 0.42), rounded=False)
-    img.alpha_composite(icon, (round(w * 0.47), round(h * 0.29)))
-    return img.convert("RGB").resize((1024, 500), Image.LANCZOS)
-
-
 def main() -> None:
     for folder, size in MIPMAPS.items():
         target = RES / folder
@@ -176,8 +143,6 @@ def main() -> None:
     STORE.mkdir(parents=True, exist_ok=True)
     draw_icon(512, rounded=True).save(STORE / "play_icon_512.png")
     print("docs/play/graphics/play_icon_512.png  512x512")
-    feature_graphic().save(STORE / "play_feature_1024x500.png")
-    print("docs/play/graphics/play_feature_1024x500.png  1024x500")
 
 
 if __name__ == "__main__":
