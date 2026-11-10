@@ -32,7 +32,7 @@ saqlaydi va hech qayerga yubormaydi:
 |---|---|---|
 | Tanlangan til | `SharedPreferences` | Yo'q |
 | Tanlangan tomon (oq/qora) | `SharedPreferences` | Yo'q |
-| Mavzu, animatsiya, tebranish, koordinata sozlamalari | `SharedPreferences` | Yo'q |
+| Mavzu va tebranish sozlamalari | `SharedPreferences` | Yo'q |
 | G'alaba / durang / mag'lubiyat soni | `SharedPreferences` | Yo'q |
 
 Bu ma'lumotlar Android'ning standart zaxiralash (Auto Backup) mexanizmi

@@ -22,7 +22,7 @@ storage, and is never sent anywhere:
 
 - the selected language;
 - the selected side (white or black);
-- theme (light/dark), animation, haptics and coordinate preferences;
+- theme (light/dark) and the haptics preference;
 - your win / draw / loss counts.
 
 The neural-network model stays encrypted inside the app itself. It is never written to device storage and is decrypted only in memory while you play.

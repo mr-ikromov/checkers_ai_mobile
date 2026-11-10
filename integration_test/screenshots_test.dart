@@ -34,10 +34,7 @@ Future<void> _tapSquare(WidgetTester tester, int square) async {
   final topLeft = box.localToGlobal(Offset.zero);
   final size = box.size.shortestSide;
   final controller = _controller(tester);
-  final pad =
-      tester.widget<BoardView>(boardFinder).showCoordinates
-          ? size * 0.062
-          : size * 0.028;
+  final pad = size * 0.062;
   final cell = (size - pad * 2) / 8;
   final dr = controller.flipped ? 7 - sqRowOf(square) : sqRowOf(square);
   final dc = controller.flipped ? 7 - sqColOf(square) : sqColOf(square);
@@ -88,7 +85,6 @@ void main() {
         'locale': language,
         'onboarded': true,
         'theme_mode': theme,
-        'animations': false,
         'haptics': false,
         'wins': 7,
         'draws': 3,

@@ -13,19 +13,17 @@ import '../game_controller.dart';
 class BoardView extends StatelessWidget {
   const BoardView({
     required this.controller,
-    required this.showCoordinates,
     super.key,
   });
 
   final GameController controller;
-  final bool showCoordinates;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         final size = math.min(constraints.maxWidth, constraints.maxHeight);
-        final framePad = showCoordinates ? size * 0.062 : size * 0.028;
+        final framePad = size * 0.062;
         final inner = size - framePad * 2;
         final cell = inner / 8;
 
@@ -50,14 +48,13 @@ class BoardView extends StatelessWidget {
                   ),
                 ),
               ),
-              if (showCoordinates)
-                Positioned.fill(
-                  child: _Coordinates(
-                    flipped: controller.flipped,
-                    pad: framePad,
-                    fontSize: math.max(8, size * 0.026),
-                  ),
+              Positioned.fill(
+                child: _Coordinates(
+                  flipped: controller.flipped,
+                  pad: framePad,
+                  fontSize: math.max(8, size * 0.026),
                 ),
+              ),
               Positioned(
                 left: framePad,
                 top: framePad,

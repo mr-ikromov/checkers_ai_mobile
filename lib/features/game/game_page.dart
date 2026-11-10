@@ -159,10 +159,7 @@ class _GamePageState extends State<GamePage> {
                       SizedBox(
                         width: boardSize,
                         height: boardSize,
-                        child: BoardView(
-                          controller: _controller,
-                          showCoordinates: widget.settings.coordinates,
-                        ),
+                        child: BoardView(controller: _controller),
                       ),
                       const SizedBox(height: AppSpacing.lg),
                       StatsPanel(readout: _controller.readout),

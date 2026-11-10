@@ -53,7 +53,7 @@ The rules engine is checked move by move against an open-source reference implem
 • Local record: wins / draws / losses
 • Built-in rules reference
 • Light and dark theme (or follow the system)
-• Animations, coordinates and haptics can each be turned off
+• Haptic feedback can be turned off
 
 ◆ PRIVACY
 

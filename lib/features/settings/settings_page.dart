@@ -126,23 +126,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: Column(
                   children: [
                     _Toggle(
-                      title: l10n.settingsAnimations,
-                      subtitle: l10n.settingsAnimationsHint,
-                      value: settings.animations,
-                      onChanged: (v) async {
-                        await settings.setAnimations(v);
-                        if (mounted) setState(() {});
-                      },
-                    ),
-                    _Toggle(
-                      title: l10n.settingsCoordinates,
-                      value: settings.coordinates,
-                      onChanged: (v) async {
-                        await settings.setCoordinates(v);
-                        if (mounted) setState(() {});
-                      },
-                    ),
-                    _Toggle(
                       title: l10n.settingsHaptics,
                       subtitle: l10n.settingsHapticsHint,
                       value: settings.haptics,

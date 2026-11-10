@@ -35,8 +35,11 @@ class AiReadout {
 }
 
 class GameController extends ChangeNotifier {
-  GameController({required this.searchMove, required this.settings})
-      : _position = Position.initial() {
+  GameController({
+    required this.searchMove,
+    required this.settings,
+    this.animationDuration = const Duration(milliseconds: 280),
+  }) : _position = Position.initial() {
     _humanSide = settings.humanSide;
     _resetSprites();
     _refreshLegal();
@@ -44,6 +47,7 @@ class GameController extends ChangeNotifier {
 
   final SearchMove searchMove;
   final SettingsStore settings;
+  final Duration animationDuration;
 
   Position _position;
   late int _humanSide;
@@ -258,10 +262,6 @@ class GameController extends ChangeNotifier {
       _notify();
     }
   }
-
-  Duration get animationDuration => settings.animations
-      ? const Duration(milliseconds: 280)
-      : Duration.zero;
 
   bool _stale(int generation) => _disposed || generation != _generation;
 

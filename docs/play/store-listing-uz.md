@@ -53,7 +53,7 @@ Qoidalar dvigateli ochiq kodli etalon bilan minglab o‘yinda solishtirib tekshi
 • Mahalliy natijalar: g‘alaba / durang / mag‘lubiyat
 • Qoidalar bo‘limi
 • Yorug‘ va to‘q rejim (yoki tizimdagidek)
-• Animatsiya, koordinatalar va tebranishni o‘chirish mumkin
+• Tebranishni o‘chirish mumkin
 
 ◆ MAXFIYLIK
 

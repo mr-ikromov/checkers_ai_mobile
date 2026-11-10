@@ -37,9 +37,7 @@ Future<void> _tapSquare(WidgetTester tester, int square) async {
   final topLeft = box.localToGlobal(Offset.zero);
   final size = box.size.shortestSide;
   final controller = _controller(tester);
-  final pad = tester.widget<BoardView>(finder).showCoordinates
-      ? size * 0.062
-      : size * 0.028;
+  final pad = size * 0.062;
   final cell = (size - pad * 2) / 8;
   final dr = controller.flipped ? 7 - sqRow[square] : sqRow[square];
   final dc = controller.flipped ? 7 - sqCol[square] : sqCol[square];
@@ -191,7 +189,6 @@ void main() {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'locale': 'uz',
       'onboarded': true,
-      'animations': false,
       'haptics': false,
     });
     await tester.pumpWidget(const ShashkaApp());
@@ -238,7 +235,6 @@ void main() {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'locale': 'en',
       'onboarded': true,
-      'animations': false,
       'haptics': false,
     });
     await tester.pumpWidget(const ShashkaApp());

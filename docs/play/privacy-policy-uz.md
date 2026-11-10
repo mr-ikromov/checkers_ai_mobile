@@ -23,7 +23,7 @@ papkasida saqlanadi va hech qayerga yuborilmaydi:
 
 - tanlangan til;
 - tanlangan tomon (oq yoki qora);
-- mavzu (yorug‘/to‘q), animatsiya, tebranish va koordinata sozlamalari;
+- mavzu (yorug‘/to‘q) va tebranish sozlamalari;
 - g‘alaba, durang va mag‘lubiyatlar soni.
 
 Neyron tarmoq modeli ilovaning o‘z ichida shifrlangan holda turadi, qurilma xotirasiga umuman yozilmaydi va faqat o‘yin davomida xotirada ochiladi.

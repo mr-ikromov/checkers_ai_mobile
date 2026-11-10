@@ -10,9 +10,7 @@ const String _kLocale = 'locale';
 const String _kSide = 'human_side';
 const String _kOnboarded = 'onboarded';
 const String _kThemeMode = 'theme_mode';
-const String _kAnimations = 'animations';
 const String _kHaptics = 'haptics';
-const String _kCoordinates = 'coordinates';
 const String _kWins = 'wins';
 const String _kDraws = 'draws';
 const String _kLosses = 'losses';
@@ -44,9 +42,7 @@ class SettingsStore extends ChangeNotifier {
 
   int get humanSide => _prefs.getInt(_kSide) == black ? black : white;
 
-  bool get animations => _prefs.getBool(_kAnimations) ?? true;
   bool get haptics => _prefs.getBool(_kHaptics) ?? true;
-  bool get coordinates => _prefs.getBool(_kCoordinates) ?? true;
 
   int get wins => _prefs.getInt(_kWins) ?? 0;
   int get draws => _prefs.getInt(_kDraws) ?? 0;
@@ -74,12 +70,8 @@ class SettingsStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> setAnimations(bool value) => _setFlag(_kAnimations, value);
-  Future<void> setHaptics(bool value) => _setFlag(_kHaptics, value);
-  Future<void> setCoordinates(bool value) => _setFlag(_kCoordinates, value);
-
-  Future<void> _setFlag(String key, bool value) async {
-    await _prefs.setBool(key, value);
+  Future<void> setHaptics(bool value) async {
+    await _prefs.setBool(_kHaptics, value);
     notifyListeners();
   }
 

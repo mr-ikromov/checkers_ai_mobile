@@ -70,10 +70,20 @@ def crop_916(path: Path) -> Image.Image:
 
 def main() -> None:
     root = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SHOTS
+    cropped: list[tuple[Path, Image.Image]] = []
+    bad: list[str] = []
+
     for path in sorted(root.glob("*/*.png")):
         out = crop_916(path)
         if round(out.size[0] * 16 / 9) != out.size[1]:
-            raise SystemExit(f"{path}: {out.size[0]}x{out.size[1]}")
+            bad.append(f"{path.name}: {out.size[0]}x{out.size[1]}")
+            continue
+        cropped.append((path, out))
+
+    if bad:
+        raise SystemExit("9:16 ga keltirib bo'lmadi:\n  " + "\n  ".join(bad))
+
+    for path, out in cropped:
         out.save(path, optimize=True)
         print(f"{path.relative_to(ROOT)}  {out.size[0]}x{out.size[1]}")
 

@@ -20,7 +20,6 @@ SearchResult _result(int action) => SearchResult(
 
 Future<SettingsStore> _store() async {
   SharedPreferences.setMockInitialValues(<String, Object>{
-    'animations': false,
     'haptics': false,
     'human_side': white,
   });
@@ -37,6 +36,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -52,6 +52,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame(humanSide: black);
 
@@ -66,6 +67,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -86,6 +88,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -109,6 +112,7 @@ void main() {
         return _result(actionEncode(0, 31));
       },
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
     final plyBefore = controller.ply;
@@ -129,6 +133,7 @@ void main() {
     final controller = GameController(
       searchMove: (position) async => throw const AiException('sinov xatosi'),
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -151,6 +156,7 @@ void main() {
         return _result(staleAction);
       },
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -176,6 +182,7 @@ void main() {
         return _result(position.legalMoves().first);
       },
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -195,6 +202,7 @@ void main() {
         return _result(position.legalMoves().first);
       },
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -215,6 +223,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -235,6 +244,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: settings,
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
 
@@ -262,6 +272,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: await _store(),
+      animationDuration: Duration.zero,
     );
     await controller.newGame();
     var guard = 0;
@@ -285,6 +296,7 @@ void main() {
     final controller = GameController(
       searchMove: _firstLegal,
       settings: settings,
+      animationDuration: Duration.zero,
     );
 
     for (var game = 0; game < 3; game++) {
