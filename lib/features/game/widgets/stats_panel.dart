@@ -21,14 +21,6 @@ class StatsPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SectionLabel(l10n.statEvaluation, align: TextAlign.center),
-          const SizedBox(height: AppSpacing.xs),
-          Text(
-            data == null ? '—' : _formatEval(data.evaluation),
-            textAlign: TextAlign.center,
-            style: AppText.statValue.copyWith(fontSize: 22),
-          ),
-          const SizedBox(height: AppSpacing.sm),
           _EvalBar(value: data?.evaluation),
           const SizedBox(height: AppSpacing.md),
           Row(
@@ -42,8 +34,8 @@ class StatsPanel extends StatelessWidget {
               ),
               Expanded(
                 child: _Stat(
-                  label: l10n.thinkTime,
-                  value: data == null ? '—' : _formatTime(l10n, data.elapsedMs),
+                  label: l10n.statEvaluation,
+                  value: data == null ? '—' : _formatEval(data.evaluation),
                 ),
               ),
             ],
@@ -52,10 +44,6 @@ class StatsPanel extends StatelessWidget {
       ),
     );
   }
-
-  static String _formatTime(L10n l10n, int elapsedMs) => elapsedMs < 1000
-      ? l10n.milliseconds(elapsedMs)
-      : l10n.seconds((elapsedMs / 1000).toStringAsFixed(1));
 
   static String _formatEval(double value) {
     final clamped = value.clamp(-1.0, 1.0);

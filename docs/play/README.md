@@ -106,7 +106,7 @@ Grafikalar:
 |---|---|---|
 | Ilova ikonkasi | `graphics/play_icon_512.png` | 512×512 PNG ✔ |
 | Feature graphic | `graphics/play_feature_1024x500.png` | 1024×500 PNG ✔ |
-| Telefon skrinshotlari | `graphics/screenshots/<til>/` | 1080×1920 (9:16), 6 ta ✔ |
+| Telefon skrinshotlari | `graphics/screenshots/<til>/` | 1269×2256 (9:16), 6 ta ✔ |
 | Planshet skrinshotlari | `graphics/screenshots-tablet/<til>/` | 1440×2560 (9:16), 6 ta ✔ |
 
 Skrinshotlar har til uchun alohida (`uz/`, `ru/`, `en/`) — Play Console'da
@@ -118,15 +118,22 @@ Tavsiya etilgan tartib: `02-board-start`, `03-board-play`, `01-home`,
 > Play skrinshot nisbati **16:9 yoki 9:16** bo'lishini talab qiladi.
 > `flutter drive` ularni qurilma ekrani o'lchamida oladi, shuning uchun
 > qayta yaratgandan keyin `python3 tool/crop_screenshots.py [papka]` ni
-> ishga tushiring — u ortiqcha balandlikni chetlardagi bo'sh joydan
-> kesadi. Maqsadli balandlik enidan hisoblanadi, shuning uchun telefon
-> (1080×1920) va planshet (1440×2560) bir xil ishlov oladi.
+> ishga tushiring.
 >
-> Planshet skrinshotlari uchun ekranni vaqtincha 9:16 ga yaqin
-> o'lchamga qo'yish kerak (`adb shell wm size 1440x2800`), chiqishni esa
-> `SHOTS_DIR` bilan ajratish:
+> Vosita avval ortiqcha balandlikni chetlardagi bo'sh joydan kesishga
+> urinadi. Maket butun ekranni to'ldirgani uchun bo'sh joy yetmasa,
+> kontentni qirqmaydi: balandlikni 16 ga karrali qiymatga keltirib,
+> enini 9 ga karrali qiymatgacha kengaytiradi va chet ustunlarni har bir
+> qator uchun cho'zadi — fon gradienti uzluksiz davom etadi. Telefon
+> shu yo'l bilan 1269×2256 bo'ladi.
+>
+> Planshetda `wm size` ishlagani uchun u to'g'ridan-to'g'ri kerakli
+> o'lchamda olinadi: 1440×2596 qo'yilsa Flutter sirti aynan 1440×2560
+> chiqadi (tizim panellari 36 px egallaydi). Chiqishni `SHOTS_DIR`
+> bilan ajrating:
 >
 > ```bash
+> adb shell wm size 1440x2596
 > SHOTS_DIR=docs/play/graphics/screenshots-tablet flutter drive --profile \
 >   --driver=test_driver/screenshots.dart \
 >   --target=integration_test/screenshots_test.dart -d <planshet>

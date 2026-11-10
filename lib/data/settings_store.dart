@@ -34,11 +34,9 @@ class SettingsStore extends ChangeNotifier {
 
   bool get onboarded => _prefs.getBool(_kOnboarded) ?? false;
 
-  ThemeMode get themeMode => switch (_prefs.getString(_kThemeMode)) {
-        'light' => ThemeMode.light,
-        'dark' => ThemeMode.dark,
-        _ => ThemeMode.system,
-      };
+  ThemeMode get themeMode => _prefs.getString(_kThemeMode) == 'light'
+      ? ThemeMode.light
+      : ThemeMode.dark;
 
   int get humanSide => _prefs.getInt(_kSide) == black ? black : white;
 
@@ -57,11 +55,10 @@ class SettingsStore extends ChangeNotifier {
   }
 
   Future<void> setThemeMode(ThemeMode mode) async {
-    await _prefs.setString(_kThemeMode, switch (mode) {
-      ThemeMode.light => 'light',
-      ThemeMode.dark => 'dark',
-      ThemeMode.system => 'system',
-    });
+    await _prefs.setString(
+      _kThemeMode,
+      mode == ThemeMode.light ? 'light' : 'dark',
+    );
     notifyListeners();
   }
 

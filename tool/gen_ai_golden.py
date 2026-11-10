@@ -38,8 +38,8 @@ sys.path.insert(0, str(ENGINE_DIR))
 
 from checkers_engine import GameState, action_encode  # noqa: E402
 
-CASES = 120
-MAX_SETUP_PLIES = 60
+CASES = 300
+MAX_SETUP_PLIES = 90
 
 
 def pick_move(session: ort.InferenceSession, state: GameState) -> dict:
@@ -79,7 +79,7 @@ def main() -> None:
         raise SystemExit(f"model topilmadi: {MODEL}")
     session = ort.InferenceSession(str(MODEL), providers=["CPUExecutionProvider"])
 
-    rng = random.Random(20260610)
+    rng = random.Random(20261111)
     cases = []
 
     while len(cases) < CASES:

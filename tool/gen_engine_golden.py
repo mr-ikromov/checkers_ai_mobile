@@ -29,7 +29,7 @@ from checkers_engine import (  # noqa: E402
     action_encode,
 )
 
-GAMES = 60
+GAMES = 200
 MAX_PLIES_PER_GAME = 400
 
 
@@ -84,7 +84,7 @@ def play_game(seed: int) -> dict:
 
 
 def main() -> None:
-    games = [play_game(1000 + i) for i in range(GAMES)]
+    games = [play_game(777000 + i * 13) for i in range(GAMES)]
     total_plies = sum(len(g["plies"]) for g in games)
     out = {
         "meta": {

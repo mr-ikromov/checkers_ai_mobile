@@ -18,15 +18,6 @@
   "newGame": "Yangi o‘yin",
   "statEvaluation": "Baho",
   "statConfidence": "Ishonch",
-  "thinkTime": "Vaqt",
-  "seconds": "{value} s",
-  "@seconds": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "resultWin": "Siz yutdingiz!",
   "resultLoss": "Neyron tarmoq yutdi",
   "resultDraw": "Durang",
@@ -106,16 +97,7 @@
   "pieceWhiteKing": "oq damka",
   "pieceBlackMan": "qora shashka",
   "pieceBlackKing": "qora damka",
-  "milliseconds": "{value} ms",
-  "@milliseconds": {
-    "placeholders": {
-      "value": {
-        "type": "int"
-      }
-    }
-  },
   "settingsAppearance": "Ko‘rinish",
-  "themeSystem": "Tizimdagidek",
   "themeLight": "Yorug‘",
   "themeDark": "To‘q"
 }

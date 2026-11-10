@@ -18,15 +18,6 @@
   "newGame": "Новая игра",
   "statEvaluation": "Оценка",
   "statConfidence": "Уверенность",
-  "thinkTime": "Время",
-  "seconds": "{value} с",
-  "@seconds": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "resultWin": "Вы выиграли!",
   "resultLoss": "Нейросеть выиграла",
   "resultDraw": "Ничья",
@@ -106,16 +97,7 @@
   "pieceWhiteKing": "белая дамка",
   "pieceBlackMan": "чёрная шашка",
   "pieceBlackKing": "чёрная дамка",
-  "milliseconds": "{value} мс",
-  "@milliseconds": {
-    "placeholders": {
-      "value": {
-        "type": "int"
-      }
-    }
-  },
   "settingsAppearance": "Оформление",
-  "themeSystem": "Как в системе",
   "themeLight": "Светлая",
   "themeDark": "Тёмная"
 }

@@ -9,7 +9,7 @@ import 'package:shashka/core/ai/ai_service.dart';
 import 'package:shashka/core/ai/model_loader.dart';
 import 'package:shashka/core/engine/position.dart';
 
-const int _games = 40;
+const int _games = 120;
 const int _maxPlies = 400;
 
 void main() {
@@ -47,7 +47,7 @@ void main() {
 
   testWidgets('$_games xilma-xil o\'yin: AI noqonuniy yurish bermaydi',
       (tester) async {
-    final rng = Random(20260610);
+    final rng = Random(20261111);
     final results = <int, int>{1: 0, -1: 0, 0: 0};
     final lengths = <int>{};
     var totalPlies = 0;

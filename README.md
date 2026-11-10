@@ -11,7 +11,7 @@ Internetsiz, ro‘yxatdan o‘tishsiz, reklamasiz. Tarmoq to‘liq telefoningizd
 <img src="https://img.shields.io/badge/Dart-3.13-0175C2?logo=dart&logoColor=white" alt="Dart">
 <img src="https://img.shields.io/badge/Android-7.0%2B-3DDC84?logo=android&logoColor=white" alt="Android">
 <img src="https://img.shields.io/badge/ONNX%20Runtime-1.28-005CED?logo=onnx&logoColor=white" alt="ONNX Runtime">
-<img src="https://img.shields.io/badge/testlar-52%20%2B%2019-success" alt="Testlar">
+<img src="https://img.shields.io/badge/testlar-75%20%2B%2018-success" alt="Testlar">
 <img src="https://img.shields.io/badge/litsenziya-MIT-lightgrey" alt="MIT">
 
 </div>
@@ -22,7 +22,7 @@ Internetsiz, ro‘yxatdan o‘tishsiz, reklamasiz. Tarmoq to‘liq telefoningizd
 <table>
 <tr>
 <td align="center"><img src="docs/play/graphics/screenshots/uz/02-board-start.png" width="205"><br><sub><b>O‘yin boshlandi</b></sub></td>
-<td align="center"><img src="docs/play/graphics/screenshots/uz/03-board-play.png" width="205"><br><sub><b>Baho · ishonch · vaqt</b></sub></td>
+<td align="center"><img src="docs/play/graphics/screenshots/uz/03-board-play.png" width="205"><br><sub><b>Baho va ishonch</b></sub></td>
 <td align="center"><img src="docs/play/graphics/screenshots/uz-light/01-home.png" width="205"><br><sub><b>Yorug‘ rejim</b></sub></td>
 <td align="center"><img src="docs/play/graphics/screenshots/uz/04-rules.png" width="205"><br><sub><b>Qoidalar</b></sub></td>
 </tr>
@@ -45,8 +45,8 @@ oynasi yo‘q, javob bir zumda keladi.
 |---|---|
 | 🧠 | Haqiqiy neyron tarmoq, qurilmada. Server yo‘q, internet ruxsati **umuman so‘ralmaydi** |
 | ⚡ | Yurish ~10 ms. Hisob-kitob alohida isolate'da — interfeys hech qachon muzlamaydi |
-| 📊 | Har yurishda **baho**, **ishonch** va **vaqt** ko‘rsatiladi |
-| 🌓 | Yorug‘ va to‘q rejim (yoki tizimdagidek) |
+| 📊 | Har yurishda **baho** va **ishonch** ko‘rsatiladi |
+| 🌓 | Yorug‘ va to‘q rejim |
 | 🌐 | O‘zbek · Rus · Ingliz |
 | ♟ | To‘liq rus shashkasi qoidalari — majburiy urish, zanjir, damka, turk zarbasi |
 | 🔒 | Akkaunt yo‘q, analitika yo‘q, reklama yo‘q |
@@ -187,19 +187,21 @@ flutter drive --profile \
 
 | To‘plam | Nimani isbotlaydi | Oxirgi natija |
 |---|---|---|
-| [`ai_parity_test`](integration_test/ai_parity_test.dart) | Ilovadagi AI **asl model** bilan bir xil yuradi | **120/120 (100%)**, farq ≤ 4·10⁻⁶ |
-| [`ai_soak_test`](integration_test/ai_soak_test.dart) | AI hech qachon noqonuniy yurish bermaydi | 40 ta **turli** o‘yin, 2786 yurish, 0 xato |
-| [`app_test`](integration_test/app_test.dart) | To‘liq oqim, til va mavzu almashtirish, navigatsiya | 6/6 |
-| [`engine_golden_test`](test/engine_golden_test.dart) | Dvigatel Python etaloniga **bit-darajada** mos | 60 o‘yin, 3198 holat |
+| [`ai_parity_test`](integration_test/ai_parity_test.dart) | Ilovadagi AI **asl model** bilan bir xil yuradi | **300/300 (100%)**, farq ≤ 7·10⁻⁶ |
+| [`ai_soak_test`](integration_test/ai_soak_test.dart) | AI hech qachon noqonuniy yurish bermaydi | 120 ta **turli** o‘yin, 7384 yurish, 0 xato |
+| [`app_test`](integration_test/app_test.dart) | To‘liq oqim, til va mavzu almashtirish, navigatsiya | 5/5 |
+| [`settings_store_test`](test/settings_store_test.dart) | Sozlamalar: standart qiymatlar, buzilgan ma‘lumot, natijalar | 12/12 |
+| [`stats_panel_test`](test/stats_panel_test.dart) | Baho/ishonch ko‘rsatkichi, chegaralar, shrift masshtabi | 11/11 |
+| [`engine_golden_test`](test/engine_golden_test.dart) | Dvigatel Python etaloniga **bit-darajada** mos | 200 o‘yin, 10 608 holat |
 | [`engine_fuzz_test`](test/engine_fuzz_test.dart) | Qoidalar invariantlari buzilmaydi | 500 o‘yin, 25 725 yurish |
 | [`engine_rules_test`](test/engine_rules_test.dart) | Qoida ssenariylari | 17/17 |
-| [`game_controller_test`](test/game_controller_test.dart) | Noqonuniy AI yurishi, AI xatosi, dispose, tez-tez bosish | 12/12 |
-| [`model_cipher_test`](test/model_cipher_test.dart) | ChaCha20 — RFC 8439 nazorat vektorlari | 6/6 |
+| [`game_controller_test`](test/game_controller_test.dart) | Noqonuniy AI yurishi, AI xatosi, dispose, tez-tez bosish | 13/13 |
+| [`model_cipher_test`](test/model_cipher_test.dart) | ChaCha20 — RFC 8439 nazorat vektorlari | 5/5 |
 
 > [!TIP]
 > **Parity testi** — ilovada haqiqiy model ishlayotganining isboti.
 > `tool/gen_ai_golden.py` asl `best.onnx` ni `onnxruntime` bilan ishga
-> tushirib, 120 ta pozitsiyada model tanlaydigan yurishni yozadi.
+> tushirib, 300 ta pozitsiyada model tanlaydigan yurishni yozadi.
 > Qurilmadagi test ayni shu pozitsiyalarni takrorlab, ilova **aynan o‘sha
 > yurishlarni** tanlashini tekshiradi.
 

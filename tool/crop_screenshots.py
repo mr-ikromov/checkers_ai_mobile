@@ -2,15 +2,15 @@
 """Skrinshotlarni Play talab qiladigan 9:16 nisbatiga keltirish.
 
 FAQAT ishlab chiqish vositasi. `flutter drive` skrinshotlarni qurilma
-ekrani o'lchamida oladi (masalan 1080x2270), Google Play esa do'kon
-sahifasi uchun qat'iy 16:9 yoki 9:16 talab qiladi.
+ekrani o'lchamida oladi, Google Play esa do'kon sahifasi uchun qat'iy
+16:9 yoki 9:16 talab qiladi.
 
-Skript ortiqcha balandlikni kontentdan emas, chetlardagi bo'sh joydan
-oladi; bo'sh joy yetmasa, kesim chizig'ini elementlar orasidagi eng
-kam kontrastli qatorga suradi.
-
-Maqsadli balandlik enidan hisoblanadi (9:16), shuning uchun telefon ham,
-planshet skrinshotlari ham bir xil ishlov oladi.
+Agar chetlarda yetarli bo'sh joy bo'lsa, ortiqcha balandlik o'shandan
+kesiladi. Bo'sh joy yetmasa (maket butun ekranni to'ldirsa) kontent
+qirqilmaydi: balandlik 16 ga karrali qiymatga keltirilib, eni 9 ga
+karrali qiymatgacha kengaytiriladi. Qo'shilgan chet ustunlar har bir
+qator uchun alohida cho'ziladi, shuning uchun ilovaning fon gradienti
+uzluksiz davom etadi.
 
 Ishlatish:
     python3 tool/crop_screenshots.py [papka]
@@ -32,15 +32,13 @@ CONTENT_THRESHOLD = 6.0
 SNAP_RANGE = 45
 
 
-def crop_916(path: Path) -> Image.Image:
-    img = Image.open(path).convert("RGB")
-    rows = np.asarray(img.convert("L"), dtype=np.float32)
-    height = rows.shape[0]
-    target = round(img.size[0] * 16 / 9)
-    need = height - target
+def trim_height(img: Image.Image, need: int) -> Image.Image:
+    """Ortiqcha balandlikni chetlardagi bo'sh joydan oladi."""
     if need <= 0:
         return img
 
+    rows = np.asarray(img.convert("L"), dtype=np.float32)
+    height = rows.shape[0]
     contrast = rows.std(axis=1)
     content = np.where(contrast > CONTENT_THRESHOLD)[0]
     top_free = max(0, int(content[0]) - MIN_TOP)
@@ -68,22 +66,54 @@ def crop_916(path: Path) -> Image.Image:
     return img.crop((0, cut_top, img.size[0], height - cut_bottom))
 
 
+def pad_width(img: Image.Image, target: int) -> Image.Image:
+    width, height = img.size
+    if target <= width:
+        return img
+
+    left = (target - width) // 2
+    out = Image.new("RGB", (target, height))
+    out.paste(img.crop((0, 0, 1, height)).resize((left, height)), (0, 0))
+    out.paste(
+        img.crop((width - 1, 0, width, height)).resize(
+            (target - width - left, height)
+        ),
+        (left + width, 0),
+    )
+    out.paste(img, (left, 0))
+    return out
+
+
+def to_916(path: Path) -> Image.Image:
+    img = Image.open(path).convert("RGB")
+    width, height = img.size
+    if width * 16 == height * 9:
+        return img
+
+    units = height // 16
+    if 9 * units >= width:
+        img = trim_height(img, height - 16 * units)
+        return pad_width(img, 9 * units)
+
+    return trim_height(img, height - round(width * 16 / 9))
+
+
 def main() -> None:
     root = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SHOTS
-    cropped: list[tuple[Path, Image.Image]] = []
+    done: list[tuple[Path, Image.Image]] = []
     bad: list[str] = []
 
     for path in sorted(root.glob("*/*.png")):
-        out = crop_916(path)
-        if round(out.size[0] * 16 / 9) != out.size[1]:
+        out = to_916(path)
+        if out.size[0] * 16 != out.size[1] * 9:
             bad.append(f"{path.name}: {out.size[0]}x{out.size[1]}")
             continue
-        cropped.append((path, out))
+        done.append((path, out))
 
     if bad:
         raise SystemExit("9:16 ga keltirib bo'lmadi:\n  " + "\n  ".join(bad))
 
-    for path, out in cropped:
+    for path, out in done:
         out.save(path, optimize=True)
         print(f"{path.relative_to(ROOT)}  {out.size[0]}x{out.size[1]}")
 

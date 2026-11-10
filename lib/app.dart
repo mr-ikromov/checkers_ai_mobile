@@ -91,7 +91,7 @@ class _ShashkaAppState extends State<ShashkaApp> {
       debugShowCheckedModeBanner: false,
       theme: buildAppTheme(Brightness.light),
       darkTheme: buildAppTheme(Brightness.dark),
-      themeMode: settings?.themeMode ?? ThemeMode.system,
+      themeMode: settings?.themeMode ?? ThemeMode.dark,
       locale: code == null ? null : Locale(code),
       localizationsDelegates: const [
         L10n.delegate,

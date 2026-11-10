@@ -1,7 +1,5 @@
 library;
 
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../../core/ai/ai_service.dart';
@@ -139,34 +137,27 @@ class _GamePageState extends State<GamePage> {
           top: false,
           child: AnimatedBuilder(
             animation: _controller,
-            builder: (context, _) => LayoutBuilder(
-              builder: (context, constraints) {
-                const chrome = 190.0;
-                final boardSize = math.min(
-                  constraints.maxWidth - AppSpacing.md * 2,
-                  math.max(160.0, constraints.maxHeight - chrome),
-                );
-                return Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    AppSpacing.md,
-                    0,
-                    AppSpacing.md,
-                    AppSpacing.md,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: boardSize,
-                        height: boardSize,
+            builder: (context, _) => Padding(
+              padding: const EdgeInsets.fromLTRB(
+                AppSpacing.md,
+                0,
+                AppSpacing.md,
+                AppSpacing.md,
+              ),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: AspectRatio(
+                        aspectRatio: 1,
                         child: BoardView(controller: _controller),
                       ),
-                      const SizedBox(height: AppSpacing.lg),
-                      StatsPanel(readout: _controller.readout),
-                    ],
+                    ),
                   ),
-                );
-              },
+                  const SizedBox(height: AppSpacing.lg),
+                  StatsPanel(readout: _controller.readout),
+                ],
+              ),
             ),
           ),
         ),

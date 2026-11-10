@@ -92,8 +92,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Column(
                     children: [
                       for (final entry in [
-                        (ThemeMode.system, l10n.themeSystem,
-                            Icons.brightness_auto_rounded),
                         (ThemeMode.light, l10n.themeLight,
                             Icons.light_mode_rounded),
                         (ThemeMode.dark, l10n.themeDark,
