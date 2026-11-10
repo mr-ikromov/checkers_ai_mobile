@@ -19,19 +19,13 @@ O‘zi o‘rgangan neyron tarmoqqa qarshi rus shashkasi. Internetsiz, reklamasiz
 ## To'liq tavsif (4000 belgigacha)
 
 ```
-Rus shashkasi — chinakam neyron tarmoqqa qarshi. Internet kerak emas,
-ro‘yxatdan o‘tish yo‘q, reklama yo‘q.
+Rus shashkasi — chinakam neyron tarmoqqa qarshi. Internet kerak emas, ro‘yxatdan o‘tish yo‘q, reklama yo‘q.
 
 ◆ RAQIBINGIZ KIM
 
-Raqibingiz — AlphaZero uslubida o‘rgatilgan transformer neyron tarmoq. U
-shashkani faqat o‘zi bilan o‘ynab o‘rgandi: inson partiyalari ham, debyut
-kitobi ham, qo‘lda yozilgan baho funksiyasi ham ishlatilmagan. Barcha
-strategiyalarni — qurbon berish, zanjirli urish, damka bilan ishlash — u
-o‘zi kashf qilgan.
+Raqibingiz — AlphaZero uslubida o‘rgatilgan transformer neyron tarmoq. U shashkani faqat o‘zi bilan o‘ynab o‘rgandi: inson partiyalari ham, debyut kitobi ham, qo‘lda yozilgan baho funksiyasi ham ishlatilmagan. Barcha strategiyalarni — qurbon berish, zanjirli urish, damka bilan ishlash — u o‘zi kashf qilgan.
 
-Tarmoq to‘liq sizning telefoningizda ishlaydi. Pozitsiyani o‘qiydi va
-darhol — bir soniyadan ham kam vaqtda — javob yuradi.
+Tarmoq to‘liq sizning telefoningizda ishlaydi. Pozitsiyani o‘qiydi va darhol — bir soniyadan ham kam vaqtda — javob yuradi.
 
 ◆ HAR YURISHDA NIMA BO‘LAYOTGANINI KO‘RASIZ
 
@@ -39,21 +33,18 @@ darhol — bir soniyadan ham kam vaqtda — javob yuradi.
 • ISHONCH — tarmoq tanlagan yurishini boshqalardan qanchalik ustun qo‘ygani
 • VAQT — o‘ylashga ketgan vaqt
 
-Bu ko‘rsatkichlar o‘yin davomida o‘zgarib boradi: qayerda xato qilganingizni
-va qayerda ustunlikni qo‘lga olganingizni aniq ko‘rasiz.
+Bu ko‘rsatkichlar o‘yin davomida o‘zgarib boradi: qayerda xato qilganingizni va qayerda ustunlikni qo‘lga olganingizni aniq ko‘rasiz.
 
 ◆ TO‘LIQ RUS SHASHKASI QOIDALARI
 
-• Urish majburiy; oddiy shashka to‘rt yo‘nalishda — oldinga ham, orqaga ham
-  uradi
+• Urish majburiy; oddiy shashka to‘rt yo‘nalishda — oldinga ham, orqaga ham uradi
 • Damka (uzoq yuruvchi) istalgan masofadan uradi
 • Zanjirli urish, tushish-cheklovi bilan
 • «Turk zarbasi»: urilgan shashkalar zanjir tugaguncha to‘siq bo‘lib qoladi
 • Zanjir o‘rtasida damkaga aylanish va damka sifatida davom etish
 • Uch karra takror va 30-yurish qoidasi bo‘yicha durang
 
-Qoidalar dvigateli ochiq kodli etalon bilan minglab o‘yinda
-solishtirib tekshirilgan — hech qanday farq yo‘q.
+Qoidalar dvigateli ochiq kodli etalon bilan minglab o‘yinda solishtirib tekshirilgan — hech qanday farq yo‘q.
 
 ◆ ILOVA HAQIDA
 
@@ -66,9 +57,7 @@ solishtirib tekshirilgan — hech qanday farq yo‘q.
 
 ◆ MAXFIYLIK
 
-Ilova hech qanday ma’lumot yig‘maydi va hech qayerga yubormaydi.
-Akkaunt yo‘q, server yo‘q, analitika yo‘q, reklama yo‘q.
-Internet ruxsati umuman so‘ralmaydi — ilovada u yo‘q.
+Ilova hech qanday ma’lumot yig‘maydi va hech qayerga yubormaydi. Akkaunt yo‘q, server yo‘q, analitika yo‘q, reklama yo‘q. Internet ruxsati umuman so‘ralmaydi — ilovada u yo‘q.
 
 Hammasi — neyron tarmoq ham — sizning qurilmangizda.
 ```
