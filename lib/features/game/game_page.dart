@@ -145,13 +145,12 @@ class _GamePageState extends State<GamePage> {
                 AppSpacing.md,
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Center(
-                      child: AspectRatio(
-                        aspectRatio: 1,
-                        child: BoardView(controller: _controller),
-                      ),
+                  Flexible(
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: BoardView(controller: _controller),
                     ),
                   ),
                   const SizedBox(height: AppSpacing.lg),

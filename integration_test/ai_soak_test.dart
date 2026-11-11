@@ -47,7 +47,7 @@ void main() {
 
   testWidgets('$_games xilma-xil o\'yin: AI noqonuniy yurish bermaydi',
       (tester) async {
-    final rng = Random(20261111);
+    final rng = Random(31337111);
     final results = <int, int>{1: 0, -1: 0, 0: 0};
     final lengths = <int>{};
     var totalPlies = 0;

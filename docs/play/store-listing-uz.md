@@ -31,7 +31,6 @@ Tarmoq to‘liq sizning telefoningizda ishlaydi. Pozitsiyani o‘qiydi va darhol
 
 • BAHO — pozitsiya siz tomondan qanday baholanmoqda (−1 dan +1 gacha)
 • ISHONCH — tarmoq tanlagan yurishini boshqalardan qanchalik ustun qo‘ygani
-• VAQT — o‘ylashga ketgan vaqt
 
 Bu ko‘rsatkichlar o‘yin davomida o‘zgarib boradi: qayerda xato qilganingizni va qayerda ustunlikni qo‘lga olganingizni aniq ko‘rasiz.
 
@@ -52,7 +51,7 @@ Qoidalar dvigateli ochiq kodli etalon bilan minglab o‘yinda solishtirib tekshi
 • Oq yoki qora tosh bilan o‘ynash
 • Mahalliy natijalar: g‘alaba / durang / mag‘lubiyat
 • Qoidalar bo‘limi
-• Yorug‘ va to‘q rejim (yoki tizimdagidek)
+• Yorug‘ va to‘q rejim
 • Tebranishni o‘chirish mumkin
 
 ◆ MAXFIYLIK

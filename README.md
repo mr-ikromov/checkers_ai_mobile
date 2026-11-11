@@ -187,12 +187,12 @@ flutter drive --profile \
 
 | To‘plam | Nimani isbotlaydi | Oxirgi natija |
 |---|---|---|
-| [`ai_parity_test`](integration_test/ai_parity_test.dart) | Ilovadagi AI **asl model** bilan bir xil yuradi | **300/300 (100%)**, farq ≤ 7·10⁻⁶ |
-| [`ai_soak_test`](integration_test/ai_soak_test.dart) | AI hech qachon noqonuniy yurish bermaydi | 120 ta **turli** o‘yin, 7384 yurish, 0 xato |
+| [`ai_parity_test`](integration_test/ai_parity_test.dart) | Ilovadagi AI **asl model** bilan bir xil yuradi | **300/300 (100%)**, farq ≤ 4·10⁻⁶ |
+| [`ai_soak_test`](integration_test/ai_soak_test.dart) | AI hech qachon noqonuniy yurish bermaydi | 120 ta **turli** o‘yin, 7991 yurish, 0 xato |
 | [`app_test`](integration_test/app_test.dart) | To‘liq oqim, til va mavzu almashtirish, navigatsiya | 5/5 |
 | [`settings_store_test`](test/settings_store_test.dart) | Sozlamalar: standart qiymatlar, buzilgan ma‘lumot, natijalar | 12/12 |
 | [`stats_panel_test`](test/stats_panel_test.dart) | Baho/ishonch ko‘rsatkichi, chegaralar, shrift masshtabi | 11/11 |
-| [`engine_golden_test`](test/engine_golden_test.dart) | Dvigatel Python etaloniga **bit-darajada** mos | 200 o‘yin, 10 608 holat |
+| [`engine_golden_test`](test/engine_golden_test.dart) | Dvigatel Python etaloniga **bit-darajada** mos | 200 o‘yin, 10 456 holat |
 | [`engine_fuzz_test`](test/engine_fuzz_test.dart) | Qoidalar invariantlari buzilmaydi | 500 o‘yin, 25 725 yurish |
 | [`engine_rules_test`](test/engine_rules_test.dart) | Qoida ssenariylari | 17/17 |
 | [`game_controller_test`](test/game_controller_test.dart) | Noqonuniy AI yurishi, AI xatosi, dispose, tez-tez bosish | 13/13 |
@@ -228,12 +228,48 @@ python3 tool/gen_ai_golden.py
 | Model (saqlashda) | ChaCha20 bilan shifrlangan; `unzip` qilgan odam ishlaydigan `.onnx` olmaydi |
 | Model (ish vaqtida) | Faqat xotirada ochiladi — **fayl tizimiga yozilmaydi** |
 | Yaxlitlik | SHA-256; asset buzilgan yoki almashtirilgan bo‘lsa ilova ishlamaydi |
-| Vaznlar | Repozitoriyda saqlanmaydi |
+| Tekshiruv | `tool/verify_release.py` — AAB'ni yetkazishdan oldin shartlarni avtomatik tekshiradi |
+
+Himoya `tool/verify_release.py` bilan har bir release uchun qayta
+tasdiqlanadi: imzo, ruxsatlar, modelning shifrlanganligi, 16 KB
+tekislik va obfuskatsiya. Oxirgisi alohida muhim — `flutter build` ni
+`--obfuscate` siz ishga tushirish oson, bunda esa `chacha20`,
+`decryptModel`, `GameController` kabi nomlar binaryda ochiq qoladi.
+Skript aynan shuni ushlaydi.
+
+> [!IMPORTANT]
+> Bu repozitoriy ochiq, va shifrlangan model (`assets/models/model.bin`)
+> hamda uni ochadigan kalit (`lib/core/ai/model_key.dart`) ham shu yerda.
+> Ya'ni **GitHub orqali modelni olish ataylab ochiq qoldirilgan** — loyiha
+> open source. Shifrlash APK'ni oddiy `unzip` qilib model olishdan to‘sadi,
+> repozitoriyni topgan odamdan emas.
 
 > [!NOTE]
 > Qurilmada ishlaydigan modelni **mutlaq** himoyalab bo‘lmaydi: ilova uni ocha
 > olsa, qurilmani to‘liq nazorat qilgan odam ham ocha oladi. Maqsad — to‘siqni
 > jiddiy ko‘tarish, mutlaq kafolat emas.
+
+---
+
+## Vositalar
+
+`tool/` ichidagilar **faqat ishlab chiqish uchun** — ilovaga kirmaydi.
+
+| Skript | Nima qiladi |
+|---|---|
+| `verify_release.py` | AAB'ni yetkazishdan oldin tekshiradi: imzo, versiya, ruxsatlar, shifrlangan model, obfuskatsiya, 16 KB tekislik |
+| `audit.py` | Izoh, o‘lik kod, yetim fayl, ishlatilmagan l10n kaliti / asset / bog‘liqlik qoldimi |
+| `gen_engine_golden.py` | Python etalonidan dvigatel uchun golden ma‘lumot chiqaradi |
+| `gen_ai_golden.py` | Asl `best.onnx` ni ishga tushirib, AI paritet etalonini chiqaradi |
+| `pack_model.py` | ONNX modelni shifrlab `assets/models/model.bin` ga joylaydi |
+| `gen_icons.py` | Ikonka va mipmap‘larni chizadi |
+| `crop_screenshots.py` | Skrinshotlarni Play talab qiladigan 9:16 nisbatiga keltiradi |
+| `strip_comments.py` | Dart fayllaridan izohlarni olib tashlaydi |
+
+```bash
+python3 tool/audit.py            # kod tozaligi
+python3 tool/verify_release.py   # release tayyormi
+```
 
 ---
 

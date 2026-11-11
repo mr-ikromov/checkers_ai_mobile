@@ -31,7 +31,6 @@ The network runs on your phone. It reads the position and answers instantly, in 
 
 • EVALUATION — how the position scores from your side (−1 to +1)
 • CONFIDENCE — how strongly the network preferred the move it played
-• TIME — how long the move took
 
 The readouts move with the game, so you can see exactly where you went wrong and where you took over.
 
@@ -52,7 +51,7 @@ The rules engine is checked move by move against an open-source reference implem
 • Play as White or Black
 • Local record: wins / draws / losses
 • Built-in rules reference
-• Light and dark theme (or follow the system)
+• Light and dark theme
 • Haptic feedback can be turned off
 
 ◆ PRIVACY

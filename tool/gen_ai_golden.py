@@ -79,7 +79,7 @@ def main() -> None:
         raise SystemExit(f"model topilmadi: {MODEL}")
     session = ort.InferenceSession(str(MODEL), providers=["CPUExecutionProvider"])
 
-    rng = random.Random(20261111)
+    rng = random.Random(31337111)
     cases = []
 
     while len(cases) < CASES:
